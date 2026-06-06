@@ -1,3 +1,28 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-tech",
+      "description": "Modern computer workstation with blue lighting",
+      "imageUrl": "https://picsum.photos/seed/tech1/1200/800",
+      "imageHint": "computer repair"
+    },
+    {
+      "id": "pc-repair",
+      "description": "Technician repairing a laptop",
+      "imageUrl": "https://picsum.photos/seed/tech2/600/400",
+      "imageHint": "laptop service"
+    },
+    {
+      "id": "software-setup",
+      "description": "Software code and installation screen",
+      "imageUrl": "https://picsum.photos/seed/tech3/600/400",
+      "imageHint": "software installation"
+    },
+    {
+      "id": "owner-portrait",
+      "description": "Professional technician portrait",
+      "imageUrl": "https://picsum.photos/seed/owner/400/400",
+      "imageHint": "professional man"
+    }
+  ]
 }
