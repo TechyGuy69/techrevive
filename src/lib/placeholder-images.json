@@ -20,9 +20,9 @@
     },
     {
       "id": "owner-portrait",
-      "description": "Usnish Banerjee, founder of TECHREVIVE, wearing glasses and a white shirt in a natural setting",
-      "imageUrl": "https://picsum.photos/seed/usnish/400/400",
-      "imageHint": "man glasses white-shirt"
+      "description": "Professional portrait of Usnish Banerjee, founder of TECHREVIVE",
+      "imageUrl": "https://picsum.photos/seed/usnish-pro-portrait/400/400",
+      "imageHint": "professional man"
     }
   ]
 }
