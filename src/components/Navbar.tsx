@@ -33,13 +33,11 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  const navBaseClasses = "sticky top-0 w-full border-b backdrop-blur-md transition-all duration-300";
-
   return (
     <>
       <nav 
         className={cn(
-          navBaseClasses, 
+          "sticky top-0 w-full border-b backdrop-blur-md transition-all duration-300",
           "z-[150]", 
           isOpen ? "bg-white shadow-none" : "bg-background/80"
         )}
@@ -66,18 +64,21 @@ export default function Navbar() {
               </Button>
             </div>
 
-            {/* Mobile Toggle Button */}
+            {/* Mobile Toggle Button - High Z-Index to stay above overlay */}
             <button
               className="md:hidden text-foreground p-2 rounded-lg hover:bg-slate-100 transition-colors relative z-[160]"
               onClick={() => setIsOpen(!isOpen)}
-              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-label="Toggle menu"
             >
-              {mounted && (isOpen ? (
-                <X className="h-7 w-7 text-primary animate-in zoom-in duration-300" />
+              {mounted ? (
+                isOpen ? (
+                  <X className="h-7 w-7 text-primary animate-in zoom-in duration-300" />
+                ) : (
+                  <Menu className="h-7 w-7" />
+                )
               ) : (
                 <Menu className="h-7 w-7" />
-              ))}
-              {!mounted && <Menu className="h-7 w-7" />}
+              )}
             </button>
           </div>
         </div>
