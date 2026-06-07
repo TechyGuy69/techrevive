@@ -46,10 +46,15 @@ export default function Home() {
                 <Button asChild size="lg" className="h-14 rounded-full px-8 text-lg tech-gradient shadow-lg">
                   <Link href="/contact">Book Service</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="h-14 rounded-full px-8 text-lg border-primary/20 hover:bg-primary/10 hover:text-primary transition-colors">
+                <Button 
+                  asChild 
+                  variant="outline" 
+                  size="lg" 
+                  className="h-14 rounded-full px-8 text-lg border-primary/20 hover:bg-primary/5 hover:text-primary transition-colors group"
+                >
                   <Link href="https://wa.me/919593088017">
-                    <MessageCircle className="mr-2 h-5 w-5 text-[#25D366]" />
-                    WhatsApp Now
+                    <MessageCircle className="mr-2 h-5 w-5 text-[#25D366] group-hover:text-[#25D366]" />
+                    <span className="group-hover:text-primary">WhatsApp Now</span>
                   </Link>
                 </Button>
               </div>
@@ -58,7 +63,7 @@ export default function Home() {
               <div className="absolute -inset-4 rounded-3xl bg-primary/5 blur-2xl" />
               <div className="relative overflow-hidden rounded-3xl border border-white/20 shadow-2xl">
                 <Image
-                  src={heroImage?.imageUrl || "https://picsum.photos/seed/hero/800/600"}
+                  src={heroImage?.imageUrl || "https://picsum.photos/seed/tech-hero-revive/1200/800"}
                   alt="Tech Support"
                   width={800}
                   height={600}
