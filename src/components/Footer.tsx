@@ -1,7 +1,17 @@
+
+'use client';
+
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 
 export default function Footer() {
+  const [year, setYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="border-t bg-white py-12">
       <div className="container mx-auto px-4 md:px-6">
@@ -55,7 +65,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-12 border-t pt-8 text-center text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} TECHREVIVE. All rights reserved. Owned by Usnish Banerjee.</p>
+          <p>© {year || '2025'} TECHREVIVE. All rights reserved. Owned by Usnish Banerjee.</p>
         </div>
       </div>
     </footer>

@@ -16,9 +16,10 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  // Close menu on resize to desktop
   useEffect(() => {
+    setMounted(true);
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setIsOpen(false);
@@ -28,7 +29,6 @@ export default function Navbar() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Prevent scrolling when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -37,8 +37,14 @@ export default function Navbar() {
     }
   }, [isOpen]);
 
+  // Prevent flash of mobile menu or inconsistent z-index during hydration
+  const navClasses = cn(
+    "glass-nav",
+    mounted && "!z-[100]"
+  );
+
   return (
-    <nav className="glass-nav !z-[100]">
+    <nav className={navClasses}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
