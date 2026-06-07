@@ -77,7 +77,7 @@ export default function ServicesPage() {
   return (
     <div className="bg-slate-50 min-h-screen pb-12 md:pb-24">
       {/* Header */}
-      <section className="relative bg-white py-10 md:py-20 overflow-hidden border-b">
+      <section className="relative bg-white py-8 md:py-20 overflow-hidden border-b">
         <div className="circuit-pattern absolute inset-0 opacity-40" />
         <div className="container relative mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center space-y-4 md:space-y-6">
@@ -94,7 +94,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 md:px-6 mt-10 md:mt-12">
+      <div className="container mx-auto px-4 md:px-6 mt-6 md:mt-12">
         {/* Software Services */}
         <div className="mb-12 md:mb-20">
           <div className="flex flex-col items-center mb-8 md:mb-12">
