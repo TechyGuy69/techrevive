@@ -1,9 +1,8 @@
-
 "use client";
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X, Monitor, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -22,9 +21,6 @@ export default function Navbar() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg tech-gradient text-white">
-              <Monitor className="h-5 w-5" />
-            </div>
             <span className="text-xl font-bold tracking-tighter text-primary">TECHREVIVE</span>
           </Link>
 
