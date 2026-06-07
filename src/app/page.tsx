@@ -58,7 +58,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-0">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white pt-10 pb-10 md:pt-32 md:pb-40">
+      <section className="relative overflow-hidden bg-white pt-10 pb-12 md:pt-32 md:pb-40">
         <div className="circuit-pattern absolute inset-0 opacity-40" />
         <div className="container relative mx-auto px-4 md:px-6">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
@@ -86,11 +86,11 @@ export default function Home() {
                   asChild 
                   variant="outline" 
                   size="lg" 
-                  className="h-14 rounded-full px-8 text-lg border-primary/20 hover:bg-primary hover:text-white transition-all group"
+                  className="h-14 rounded-full px-8 text-lg border-primary/20 hover:bg-primary/5 group"
                 >
                   <Link href="https://wa.me/919593088017" className="flex items-center">
-                    <MessageCircle className="mr-2 h-5 w-5 text-[#25D366] group-hover:text-white" />
-                    <span className="text-foreground group-hover:text-white transition-colors">WhatsApp Now</span>
+                    <MessageCircle className="mr-2 h-5 w-5 text-[#25D366]" />
+                    <span className="text-foreground group-hover:text-primary transition-colors">WhatsApp Now</span>
                   </Link>
                 </Button>
               </div>
@@ -114,9 +114,9 @@ export default function Home() {
       </section>
 
       {/* Quick Services Section */}
-      <section className="bg-slate-50 py-12 md:py-24">
+      <section className="bg-slate-50 py-10 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mb-8 md:mb-16 text-center">
+          <div className="mb-6 md:mb-16 text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-5xl mb-3">Our Services</h2>
             <p className="mx-auto max-w-[700px] text-muted-foreground text-sm md:text-base">
               Professional solutions for all your computer and laptop needs.
@@ -125,7 +125,7 @@ export default function Home() {
           <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {quickServices.map((s, i) => (
               <div key={i} className="group relative rounded-2xl bg-white p-6 md:p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl border border-transparent hover:border-primary/10">
-                <div className="mb-4 md:mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl tech-gradient text-white">
+                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl tech-gradient text-white">
                   <s.icon className="h-6 w-6" />
                 </div>
                 <h3 className="mb-2 text-xl font-bold tracking-tight">{s.title}</h3>
@@ -150,7 +150,7 @@ export default function Home() {
       </section>
 
       {/* AI Troubleshooting Section */}
-      <section className="py-12 md:py-24 bg-white relative">
+      <section className="py-10 md:py-24 bg-white relative">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid gap-8 lg:grid-cols-2 items-center">
             <div className="space-y-4 md:space-y-6">
@@ -221,7 +221,7 @@ export default function Home() {
       {/* Final CTA */}
       <section className="py-12 md:py-24 bg-white text-center">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mx-auto max-w-4xl space-y-6 md:space-y-8 rounded-3xl bg-slate-50 p-8 md:p-12 border border-slate-200">
+          <div className="mx-auto max-w-4xl space-y-6 md:space-y-8 rounded-3xl bg-slate-50 p-6 md:p-12 border border-slate-200">
             <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Ready to Revive Your PC?</h2>
             <p className="text-lg text-muted-foreground">
               Don't wait for errors to get worse. Contact Usnish Banerjee today.
