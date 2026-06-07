@@ -34,7 +34,8 @@ export default function Navbar() {
   }, [isOpen]);
 
   // Base classes for the navbar to ensure stability during hydration
-  const navBaseClasses = "glass-nav sticky top-0 w-full border-b bg-background/80 backdrop-blur-md z-[60]";
+  // Higher z-index for the navbar (110) to stay above the overlay (100)
+  const navBaseClasses = "glass-nav sticky top-0 w-full border-b bg-background/80 backdrop-blur-md z-[110]";
 
   return (
     <>
@@ -63,21 +64,25 @@ export default function Navbar() {
 
             {/* Mobile Toggle */}
             <button
-              className="md:hidden text-foreground p-2 rounded-lg hover:bg-slate-100 transition-colors relative z-[110]"
+              className="md:hidden text-foreground p-2 rounded-lg hover:bg-slate-100 transition-colors relative z-[120]"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
-              {mounted && (isOpen ? <X className="h-6 w-6 text-primary" /> : <Menu className="h-6 w-6" />)}
+              {mounted && (isOpen ? (
+                <X className="h-6 w-6 text-primary animate-in spin-in-90 duration-300" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              ))}
               {!mounted && <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Nav Overlay - Higher Z-Index and Blur */}
+      {/* Mobile Nav Overlay - Z-Index 100, sits behind Navbar (110) but over content */}
       <div
         className={cn(
-          "fixed inset-0 z-[100] bg-white/90 backdrop-blur-xl transition-all duration-300 md:hidden flex flex-col",
+          "fixed inset-0 z-[100] bg-white/95 backdrop-blur-xl transition-all duration-300 md:hidden flex flex-col",
           mounted && isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"
         )}
       >
