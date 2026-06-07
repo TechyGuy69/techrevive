@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { 
-  Monitor, 
   ShieldCheck, 
   Zap, 
   Clock, 
@@ -11,7 +10,8 @@ import {
   ArrowRight,
   MessageCircle,
   PhoneCall,
-  House
+  House,
+  Monitor
 } from 'lucide-react';
 import SmartTroubleshooter from '@/components/SmartTroubleshooter';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -21,7 +21,6 @@ const quickServices = [
   { 
     title: "Windows Installation", 
     desc: "Clean setup of latest OS with drivers.", 
-    icon: Monitor,
     iconName: "monitor",
     longDesc: "A complete professional setup of Windows 10 or 11. We don't just install the OS; we configure your BIOS, set up high-performance partition schemes, install every necessary hardware driver, and apply the latest security patches for a rock-solid foundation.",
     benefits: ["Latest Security Updates", "Verified Driver Compatibility", "Optimized Disk Partitions", "Basic Utility Pack"]
@@ -29,7 +28,6 @@ const quickServices = [
   { 
     title: "Software Setup", 
     desc: "MS Office and essential apps configuration.", 
-    icon: Smartphone,
     iconName: "smartphone",
     longDesc: "Expert installation of the tools you use every day. From the full Microsoft Office suite to specialized browsers, PDF editors, and communication tools. We ensure all software is properly activated and settings are tuned for your specific workflow.",
     benefits: ["Full Office Activation", "Browser Optimization", "Essential Tools Pack", "Data Protection Setup"]
@@ -37,7 +35,6 @@ const quickServices = [
   { 
     title: "PC Optimization", 
     desc: "Make your old PC run like new again.", 
-    icon: Zap,
     iconName: "zap",
     longDesc: "Is your computer feeling sluggish? We perform deep system cleanup, registry repair, and startup optimization. We also handle thermal management, ensuring your hardware isn't being throttled by heat or bloatware.",
     benefits: ["Faster Boot Times", "Increased FPS in Games", "Lower Operating Temps", "Bloatware Removal"]
@@ -45,7 +42,6 @@ const quickServices = [
   { 
     title: "Troubleshooting", 
     desc: "Fix errors, blue screens, and crashes.", 
-    icon: ShieldCheck,
     iconName: "shield",
     longDesc: "Deep hardware and software diagnostics to identify exactly why your system is failing. We resolve Blue Screen of Death (BSOD) errors, frequent freezing, peripheral connectivity issues, and complex software conflicts.",
     benefits: ["Root Cause Identification", "BSOD Error Fixes", "Hardware Health Check", "Stable System Restore"]
@@ -58,7 +54,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-0">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white pt-10 pb-12 md:pt-32 md:pb-40">
+      <section className="relative overflow-hidden bg-white pt-6 pb-8 md:pt-32 md:pb-40">
         <div className="circuit-pattern absolute inset-0 opacity-40" />
         <div className="container relative mx-auto px-4 md:px-6">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
@@ -114,7 +110,7 @@ export default function Home() {
       </section>
 
       {/* Quick Services Section */}
-      <section className="bg-slate-50 py-10 md:py-24">
+      <section className="bg-slate-50 py-8 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mb-6 md:mb-16 text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-5xl mb-3">Our Services</h2>
@@ -126,7 +122,10 @@ export default function Home() {
             {quickServices.map((s, i) => (
               <div key={i} className="group relative rounded-2xl bg-white p-6 md:p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl border border-transparent hover:border-primary/10">
                 <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl tech-gradient text-white">
-                  <s.icon className="h-6 w-6" />
+                   {s.iconName === "monitor" && <Monitor className="h-6 w-6" />}
+                   {s.iconName === "smartphone" && <Smartphone className="h-6 w-6" />}
+                   {s.iconName === "zap" && <Zap className="h-6 w-6" />}
+                   {s.iconName === "shield" && <ShieldCheck className="h-6 w-6" />}
                 </div>
                 <h3 className="mb-2 text-xl font-bold tracking-tight">{s.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
@@ -150,7 +149,7 @@ export default function Home() {
       </section>
 
       {/* AI Troubleshooting Section */}
-      <section className="py-10 md:py-24 bg-white relative">
+      <section className="py-8 md:py-24 bg-white relative">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid gap-8 lg:grid-cols-2 items-center">
             <div className="space-y-4 md:space-y-6">
@@ -187,7 +186,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-primary py-12 md:py-24 text-white">
+      <section className="bg-primary py-8 md:py-24 text-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mb-8 md:mb-16 text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-5xl mb-3">Why TechRevive?</h2>
@@ -219,7 +218,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-12 md:py-24 bg-white text-center">
+      <section className="py-8 md:py-24 bg-white text-center">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-4xl space-y-6 md:space-y-8 rounded-3xl bg-slate-50 p-6 md:p-12 border border-slate-200">
             <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Ready to Revive Your PC?</h2>

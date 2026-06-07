@@ -70,7 +70,7 @@ export default function ServiceDialog({
           </div>
         )}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px] rounded-[2rem] border-none shadow-2xl">
+      <DialogContent className="sm:max-w-[500px] rounded-[2rem] border-none shadow-2xl z-50">
         <DialogHeader className="space-y-4">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl tech-gradient text-white shadow-xl">
             <Icon className="h-8 w-8" />
