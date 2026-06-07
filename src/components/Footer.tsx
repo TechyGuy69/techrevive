@@ -20,15 +20,26 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 text-primary shrink-0" />
-                <span>Ashoknagar 4 No, Near Sherpur Kalibari</span>
+                <a 
+                  href="https://maps.app.goo.gl/rubq3GgtkHcpYHsS8" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  Ashoknagar 4 No, Near Sherpur Kalibari
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-primary shrink-0" />
-                <span>+91 9593088017</span>
+                <a href="tel:9593088017" className="hover:text-primary transition-colors">
+                  +91 9593088017
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary shrink-0" />
-                <span>banerjeeusnish2@gmail.com</span>
+                <a href="mailto:banerjeeusnish2@gmail.com" className="hover:text-primary transition-colors">
+                  banerjeeusnish2@gmail.com
+                </a>
               </li>
             </ul>
           </div>
