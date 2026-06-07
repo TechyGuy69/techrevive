@@ -126,7 +126,7 @@ export default function AboutPage() {
                   Serving Ashoknagar and all areas within a 15km radius with prompt home service.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {['Ashoknagar', 'Habra', 'Sherpur', 'Kalyani'].map(city => (
+                  {['Ashoknagar', 'Habra', 'Sherpur', 'Kalyangarh'].map(city => (
                     <span key={city} className="px-3 py-1 rounded-full bg-white/10 text-[10px] font-bold uppercase tracking-wider border border-white/20">
                       {city}
                     </span>
