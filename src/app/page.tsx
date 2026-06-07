@@ -11,7 +11,8 @@ import {
   Smartphone, 
   ArrowRight,
   MessageCircle,
-  PhoneCall
+  PhoneCall,
+  House
 } from 'lucide-react';
 import SmartTroubleshooter from '@/components/SmartTroubleshooter';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -22,11 +23,11 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-0">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white pt-16 pb-24 md:pt-32 md:pb-40">
+      <section className="relative overflow-hidden bg-white pt-12 pb-16 md:pt-32 md:pb-40">
         <div className="circuit-pattern absolute inset-0 opacity-40" />
         <div className="container relative mx-auto px-4 md:px-6">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="flex flex-col space-y-8 text-center lg:text-left">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+            <div className="flex flex-col space-y-6 md:space-y-8 text-center lg:text-left">
               <div className="inline-flex items-center self-center lg:self-start gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -50,16 +51,16 @@ export default function Home() {
                   asChild 
                   variant="outline" 
                   size="lg" 
-                  className="h-14 rounded-full px-8 text-lg border-primary/20 hover:bg-primary/5 hover:text-primary transition-colors group"
+                  className="h-14 rounded-full px-8 text-lg border-primary/20 hover:bg-primary/5 group"
                 >
-                  <Link href="https://wa.me/919593088017">
+                  <Link href="https://wa.me/919593088017" className="flex items-center">
                     <MessageCircle className="mr-2 h-5 w-5 text-[#25D366]" />
                     <span className="text-foreground group-hover:text-primary transition-colors">WhatsApp Now</span>
                   </Link>
                 </Button>
               </div>
             </div>
-            <div className="relative mx-auto w-full max-w-[600px] lg:max-w-none">
+            <div className="relative mx-auto w-full max-w-[500px] lg:max-w-none">
               <div className="absolute -inset-4 rounded-3xl bg-primary/5 blur-2xl" />
               <div className="relative overflow-hidden rounded-3xl border border-white/20 shadow-2xl">
                 <Image
@@ -78,9 +79,9 @@ export default function Home() {
       </section>
 
       {/* Quick Services Section */}
-      <section className="bg-slate-50 py-24">
+      <section className="bg-slate-50 py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mb-16 text-center">
+          <div className="mb-10 md:mb-16 text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-5xl mb-4">Our Services</h2>
             <p className="mx-auto max-w-[700px] text-muted-foreground">
               We provide professional solutions for all your computer and laptop needs.
@@ -93,7 +94,7 @@ export default function Home() {
               { title: "PC Optimization", desc: "Make your old PC run like new again.", icon: Zap },
               { title: "Troubleshooting", desc: "Fix errors, blue screens, and crashes.", icon: ShieldCheck },
             ].map((s, i) => (
-              <div key={i} className="group relative rounded-2xl bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl">
+              <div key={i} className="group relative rounded-2xl bg-white p-6 md:p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl">
                 <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl tech-gradient text-white">
                   <s.icon className="h-6 w-6" />
                 </div>
@@ -105,7 +106,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="mt-12 text-center">
+          <div className="mt-10 md:mt-12 text-center">
             <Button asChild variant="link" className="text-primary font-bold">
               <Link href="/services">View All Services & Pricing <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
@@ -114,9 +115,9 @@ export default function Home() {
       </section>
 
       {/* AI Troubleshooting Section */}
-      <section className="py-24 bg-white relative">
+      <section className="py-16 md:py-24 bg-white relative">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid gap-12 lg:grid-cols-2 items-center">
+          <div className="grid gap-10 lg:grid-cols-2 items-center">
             <div className="space-y-6">
               <div className="inline-block rounded-lg bg-accent/10 px-3 py-1 text-sm font-bold text-accent uppercase tracking-widest">
                 AI Powered Help
@@ -127,7 +128,7 @@ export default function Home() {
               <p className="text-lg text-muted-foreground">
                 Get instant diagnostic advice using our custom-built AI engine. Describe your issue and get a step-by-step fix in seconds.
               </p>
-              <ul className="space-y-4">
+              <ul className="space-y-3 md:space-y-4">
                 {[
                   "Available 24/7 for instant help",
                   "Covers hardware and software issues",
@@ -151,24 +152,24 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-primary py-24 text-white">
+      <section className="bg-primary py-16 md:py-24 text-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mb-16 text-center">
+          <div className="mb-10 md:mb-16 text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-5xl mb-4">Why TechRevive?</h2>
             <p className="mx-auto max-w-[700px] text-blue-100 opacity-80">
               Trusted local technician providing premium quality service at local prices.
             </p>
           </div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { title: "Fast Service", desc: "Most software issues resolved within hours.", icon: Clock },
               { title: "Affordable Pricing", desc: "Transparent pricing starting from just ₹50.", icon: Zap },
               { title: "Remote Support", desc: "Safe remote assistance available anywhere.", icon: Smartphone },
-              { title: "Home Service", desc: "We come to you. No need to carry your PC.", icon: HomeIcon },
+              { title: "Home Service", desc: "We come to you. No need to carry your PC.", icon: House },
               { title: "Trusted Local Tech", desc: "Direct service by owner Usnish Banerjee.", icon: ShieldCheck },
               { title: "Free Diagnostic", desc: "Get a quote before we start any repair.", icon: Monitor },
             ].map((f, i) => (
-              <div key={i} className="flex gap-4 rounded-2xl bg-white/10 p-6 backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-colors">
+              <div key={i} className="flex gap-4 rounded-2xl bg-white/10 p-5 md:p-6 backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-colors">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/20">
                   <f.icon className="h-6 w-6" />
                 </div>
@@ -183,9 +184,9 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 bg-white text-center">
+      <section className="py-16 md:py-24 bg-white text-center">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mx-auto max-w-4xl space-y-8 rounded-3xl bg-slate-50 p-12 border border-slate-200">
+          <div className="mx-auto max-w-4xl space-y-6 md:space-y-8 rounded-3xl bg-slate-50 p-8 md:p-12 border border-slate-200">
             <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Ready to Revive Your PC?</h2>
             <p className="text-lg text-muted-foreground">
               Don't wait for errors to get worse. Contact Usnish Banerjee today.
