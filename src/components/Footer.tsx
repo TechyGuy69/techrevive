@@ -67,7 +67,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-12 border-t pt-8 text-center text-xs text-muted-foreground">
-          <p>© {year || '2025'} TECHREVIVE. All rights reserved. Owned by Usnish Banerjee.</p>
+          <p>© {year || '2025'} TECHREVIVE. Expertly Managed by Usnish Banerjee.</p>
         </div>
       </div>
     </footer>

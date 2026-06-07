@@ -33,7 +33,6 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  // High z-index for the navbar (150) to stay above the overlay (140)
   const navBaseClasses = "sticky top-0 w-full border-b backdrop-blur-md transition-all duration-300";
 
   return (
@@ -41,7 +40,7 @@ export default function Navbar() {
       <nav 
         className={cn(
           navBaseClasses, 
-          "z-[150]", // Ensure navbar is on top of everything
+          "z-[150]", 
           isOpen ? "bg-white shadow-none" : "bg-background/80"
         )}
       >
@@ -84,7 +83,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Nav Overlay - Z-Index 140, sits just behind Navbar (150) */}
+      {/* Mobile Nav Overlay */}
       <div
         className={cn(
           "fixed inset-0 z-[140] bg-white/95 backdrop-blur-2xl transition-all duration-500 md:hidden flex flex-col",
@@ -110,11 +109,9 @@ export default function Navbar() {
               </Link>
             </Button>
             
-            <div className="mt-12 text-center space-y-4">
-              <p className="text-xs text-muted-foreground uppercase tracking-widest font-bold">Technician: Usnish Banerjee</p>
-              <a href="tel:9593088017" className="block text-2xl font-bold text-primary">
-                +91 9593088017
-              </a>
+            <div className="mt-12 text-center space-y-2">
+              <p className="text-[10px] text-muted-foreground uppercase tracking-[0.2em] font-bold">Expert Support by</p>
+              <p className="text-xl font-bold text-foreground">Usnish Banerjee</p>
             </div>
           </div>
         </div>
