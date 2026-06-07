@@ -1,9 +1,6 @@
-
 'use server';
 
 import { Resend } from 'resend';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendServiceEmail(data: {
   name: string;
@@ -11,14 +8,18 @@ export async function sendServiceEmail(data: {
   service: string;
   message: string;
 }) {
-  if (!process.env.RESEND_API_KEY) {
-    console.error('RESEND_API_KEY is missing');
-    return { success: false, error: 'Email service configuration missing' };
+  const apiKey = process.env.RESEND_API_KEY;
+  
+  if (!apiKey) {
+    console.error('RESEND_API_KEY is missing in environment variables');
+    return { success: false, error: 'Email configuration error' };
   }
 
+  const resend = new Resend(apiKey);
+
   try {
-    await resend.emails.send({
-      from: 'TECHREVIVE Notifications <onboarding@resend.dev>',
+    const response = await resend.emails.send({
+      from: 'TECHREVIVE <onboarding@resend.dev>',
       to: 'banerjeeusnish2@gmail.com',
       replyTo: 'banerjeeusnish2@gmail.com',
       subject: `🛠️ New Service Request: ${data.name}`,
@@ -75,7 +76,7 @@ export async function sendServiceEmail(data: {
             </div>
 
             <div class="footer">
-              <p>This request was submitted on ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'full', timeStyle: 'short' })}</p>
+              <p>Submitted on: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</p>
               <p style="margin-top: 8px;">Managed by Usnish Banerjee • TechRevive 2025</p>
             </div>
           </div>
@@ -83,9 +84,15 @@ export async function sendServiceEmail(data: {
         </html>
       `,
     });
+
+    if (response.error) {
+      console.error('Resend error:', response.error);
+      return { success: false, error: response.error.message };
+    }
+
     return { success: true };
-  } catch (error) {
-    console.error('Resend error:', error);
-    return { success: false, error: 'Failed to send email notification' };
+  } catch (error: any) {
+    console.error('Email action exception:', error);
+    return { success: false, error: 'Internal server error' };
   }
 }

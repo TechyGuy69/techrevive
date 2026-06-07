@@ -36,12 +36,10 @@ export default function ContactPage() {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!db) return;
-    
     setLoading(true);
-    
+
     const requestData = {
       name: formData.name,
       phone: formData.phone,
@@ -51,28 +49,49 @@ export default function ContactPage() {
       status: 'pending'
     };
 
-    // 1. Save to Firestore
-    addDoc(collection(db, 'serviceRequests'), requestData)
-      .then(async () => {
-        // 2. Trigger Email Notification (Server Action)
-        await sendServiceEmail(formData);
-        
+    try {
+      // 1. Fire and forget to Firestore (doesn't block UI if connected to placeholder)
+      if (db) {
+        addDoc(collection(db, 'serviceRequests'), requestData)
+          .catch(async () => {
+            const permissionError = new FirestorePermissionError({
+              path: 'serviceRequests',
+              operation: 'create',
+              requestResourceData: requestData,
+            });
+            errorEmitter.emit('permission-error', permissionError);
+          });
+      }
+
+      // 2. Trigger Email Notification via Server Action
+      const result = await sendServiceEmail(formData);
+      
+      if (result.success) {
         setSubmitted(true);
         toast({
           title: "Request Sent Successfully!",
-          description: "Usnish will contact you shortly at " + formData.phone,
+          description: "Usnish will contact you shortly.",
         });
-        setLoading(false);
-      })
-      .catch(async (serverError) => {
-        const permissionError = new FirestorePermissionError({
-          path: 'serviceRequests',
-          operation: 'create',
-          requestResourceData: requestData,
+      } else {
+        // Even if email fails, we might want to show success if Firestore was attempted
+        // But for clarity, we show the error.
+        toast({
+          variant: "destructive",
+          title: "Failed to send email",
+          description: result.error || "Please contact Usnish directly via Phone/WhatsApp.",
         });
-        errorEmitter.emit('permission-error', permissionError);
-        setLoading(false);
+        // Set to submitted anyway if we want to be optimistic, but let's stay on form for errors.
+      }
+    } catch (err) {
+      console.error("Submission error:", err);
+      toast({
+        variant: "destructive",
+        title: "Submission Error",
+        description: "Something went wrong. Please call Usnish directly.",
       });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -178,7 +197,6 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Google Map Embed */}
             <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-lg h-[180px] md:h-[250px]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14695.34005081198!2d88.60835821738281!3d22.825946999999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8bc2142278917%3A0xc39f9976378e915!2sAshoknagar%204%20no.!5e0!3m2!1sen!2sin!4v1716120000000!5m2!1sen!2sin"
@@ -209,6 +227,7 @@ export default function ContactPage() {
                     className="rounded-xl h-11 border-slate-200 text-sm" 
                     value={formData.name}
                     onChange={handleChange}
+                    disabled={loading}
                   />
                 </div>
                 <div className="space-y-2">
@@ -221,6 +240,7 @@ export default function ContactPage() {
                     className="rounded-xl h-11 border-slate-200 text-sm" 
                     value={formData.phone}
                     onChange={handleChange}
+                    disabled={loading}
                   />
                 </div>
               </div>
@@ -232,6 +252,7 @@ export default function ContactPage() {
                   required
                   value={formData.service}
                   onChange={handleChange}
+                  disabled={loading}
                 >
                   <option value="">Select a service</option>
                   <option value="Windows Installation">Windows Installation</option>
@@ -251,6 +272,7 @@ export default function ContactPage() {
                   required
                   value={formData.message}
                   onChange={handleChange}
+                  disabled={loading}
                 />
               </div>
               <Button type="submit" disabled={loading} className="w-full h-12 md:h-14 rounded-xl text-base md:text-lg font-bold tech-gradient shadow-lg text-white border-none transition-transform active:scale-[0.98]">
