@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from 'next/link';
@@ -35,7 +34,7 @@ export default function Navbar() {
 
   if (!mounted) {
     return (
-      <nav className="sticky top-0 w-full border-b bg-background z-40">
+      <nav className="sticky top-0 w-full border-b bg-background z-50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center gap-2">
@@ -51,8 +50,7 @@ export default function Navbar() {
     <>
       <nav 
         className={cn(
-          "sticky top-0 w-full border-b backdrop-blur-md transition-all duration-300",
-          "z-40", 
+          "sticky top-0 w-full border-b backdrop-blur-md transition-all duration-300 z-50",
           isOpen ? "bg-white" : "bg-background/80"
         )}
       >
@@ -97,7 +95,7 @@ export default function Navbar() {
       {/* Mobile Nav Overlay */}
       <div
         className={cn(
-          "fixed inset-0 z-30 bg-white/95 backdrop-blur-2xl transition-all duration-500 md:hidden flex flex-col",
+          "fixed inset-0 z-40 bg-white/95 backdrop-blur-2xl transition-all duration-500 md:hidden flex flex-col",
           isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
         )}
       >

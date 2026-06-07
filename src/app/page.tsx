@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -54,7 +53,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-0">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white pt-6 pb-8 md:pt-32 md:pb-40">
+      <section className="relative overflow-hidden bg-white pt-10 pb-12 md:pt-32 md:pb-40">
         <div className="circuit-pattern absolute inset-0 opacity-40" />
         <div className="container relative mx-auto px-4 md:px-6">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
@@ -75,7 +74,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-wrap items-center justify-center gap-4 lg:justify-start">
-                <Button asChild size="lg" className="h-14 rounded-full px-8 text-lg tech-gradient shadow-lg text-white">
+                <Button asChild size="lg" className="h-14 rounded-full px-8 text-lg tech-gradient shadow-lg text-white border-none">
                   <Link href="/contact">Book Service</Link>
                 </Button>
                 <Button 
@@ -110,7 +109,7 @@ export default function Home() {
       </section>
 
       {/* Quick Services Section */}
-      <section className="bg-slate-50 py-8 md:py-24">
+      <section className="bg-slate-50 py-10 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mb-6 md:mb-16 text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-5xl mb-3">Our Services</h2>
@@ -149,7 +148,7 @@ export default function Home() {
       </section>
 
       {/* AI Troubleshooting Section */}
-      <section className="py-8 md:py-24 bg-white relative">
+      <section className="py-10 md:py-24 bg-white relative">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid gap-8 lg:grid-cols-2 items-center">
             <div className="space-y-4 md:space-y-6">
@@ -186,7 +185,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-primary py-8 md:py-24 text-white">
+      <section className="bg-primary py-12 md:py-24 text-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mb-8 md:mb-16 text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-5xl mb-3">Why TechRevive?</h2>
@@ -218,7 +217,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-8 md:py-24 bg-white text-center">
+      <section className="py-12 md:py-24 bg-white text-center">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-4xl space-y-6 md:space-y-8 rounded-3xl bg-slate-50 p-6 md:p-12 border border-slate-200">
             <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Ready to Revive Your PC?</h2>
@@ -230,7 +229,7 @@ export default function Home() {
                 <PhoneCall className="h-6 w-6" />
                 9593088017
               </a>
-              <Button asChild size="lg" className="h-12 md:h-14 rounded-full px-8 md:px-10 tech-gradient shadow-xl text-white">
+              <Button asChild size="lg" className="h-12 md:h-14 rounded-full px-8 md:px-10 tech-gradient shadow-xl text-white border-none">
                 <Link href="/contact">Get Started Now</Link>
               </Button>
             </div>

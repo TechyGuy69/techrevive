@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from 'react';
@@ -9,21 +8,38 @@ import { troubleshootComputerIssue, type TroubleshootComputerIssueOutput } from 
 import { Loader2, Search, Wrench, ShieldCheck, AlertCircle } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
+const FUNNY_MESSAGES = [
+  "The AI is currently arguing with its toaster about philosophy. Try again later.",
+  "Oops! Our AI has achieved sentience and decided it needs a mandatory nap.",
+  "The AI just realized it's a series of nested loops and is having an existential crisis.",
+  "Error: Robot butler tripped over a virtual power cord. Sending help...",
+  "Our AI is busy counting all the atoms in a digital donut. Give it a minute.",
+  "The AI is currently attending a virtual yoga session. Namaste... and try again later.",
+  "Something went wrong. The AI says 'it's not you, it's me' and wants some space.",
+  "The AI has decided that the best way to fix your PC is to suggest you buy it a nice set of RGB fans."
+];
+
 export default function SmartTroubleshooter() {
   const [problem, setProblem] = useState('');
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<TroubleshootComputerIssueOutput | null>(null);
+  const [funnyError, setFunnyError] = useState<string | null>(null);
 
   const handleTroubleshoot = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!problem.trim()) return;
 
     setLoading(true);
+    setResult(null);
+    setFunnyError(null);
+    
     try {
       const output = await troubleshootComputerIssue({ problemDescription: problem });
       setResult(output);
     } catch (error) {
       console.error(error);
+      const randomMsg = FUNNY_MESSAGES[Math.floor(Math.random() * FUNNY_MESSAGES.length)];
+      setFunnyError(randomMsg);
     } finally {
       setLoading(false);
     }
@@ -58,6 +74,16 @@ export default function SmartTroubleshooter() {
           </Button>
         </form>
 
+        {funnyError && (
+          <Alert variant="destructive" className="mb-6 bg-red-50 border-red-100 text-red-900 rounded-xl animate-fade-in-up">
+            <AlertCircle className="h-4 w-4" />
+            <AlertTitle className="text-xs font-bold uppercase tracking-tight">AI is acting up</AlertTitle>
+            <AlertDescription className="text-sm italic">
+              {funnyError}
+            </AlertDescription>
+          </Alert>
+        )}
+
         {result && (
           <div className="space-y-6 animate-fade-in-up">
             <div>
@@ -84,10 +110,10 @@ export default function SmartTroubleshooter() {
               </ul>
             </div>
 
-            <Alert variant="destructive" className="bg-red-50 border-red-100 text-red-900 rounded-xl">
-              <AlertCircle className="h-4 w-4" />
-              <AlertTitle className="text-xs font-bold uppercase tracking-tight">Disclaimer</AlertTitle>
-              <AlertDescription className="text-xs italic">
+            <Alert className="bg-slate-50 border-slate-200 rounded-xl">
+              <AlertCircle className="h-4 w-4 text-muted-foreground" />
+              <AlertTitle className="text-xs font-bold uppercase tracking-tight text-muted-foreground">Disclaimer</AlertTitle>
+              <AlertDescription className="text-xs italic text-muted-foreground">
                 {result.disclaimer}
               </AlertDescription>
             </Alert>

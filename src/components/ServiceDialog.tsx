@@ -1,4 +1,3 @@
-
 "use client";
 
 import {
@@ -65,12 +64,12 @@ export default function ServiceDialog({
     <Dialog>
       <DialogTrigger asChild>
         {trigger || (
-          <div className="mt-4 md:mt-6 flex items-center text-primary text-xs font-bold uppercase tracking-widest cursor-pointer hover:underline">
+          <div className="mt-4 md:mt-6 inline-flex items-center text-primary text-xs font-bold uppercase tracking-widest cursor-pointer hover:underline">
             Read more <ArrowRight className="ml-2 h-3 w-3" />
           </div>
         )}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px] rounded-[2rem] border-none shadow-2xl z-50">
+      <DialogContent className="sm:max-w-[500px] rounded-[2rem] border-none shadow-2xl z-[100]">
         <DialogHeader className="space-y-4">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl tech-gradient text-white shadow-xl">
             <Icon className="h-8 w-8" />
@@ -96,7 +95,7 @@ export default function ServiceDialog({
         )}
 
         <div className="mt-4 flex flex-col gap-3">
-          <Button asChild className="h-12 rounded-xl tech-gradient font-bold text-white">
+          <Button asChild className="h-12 rounded-xl tech-gradient font-bold text-white border-none">
             <Link href="/contact">Book This Service</Link>
           </Button>
           <DialogTrigger asChild>
