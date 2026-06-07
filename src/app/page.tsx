@@ -10,7 +10,8 @@ import {
   MessageCircle,
   PhoneCall,
   House,
-  Monitor
+  Monitor,
+  Mail
 } from 'lucide-react';
 import SmartTroubleshooter from '@/components/SmartTroubleshooter';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -74,7 +75,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-wrap items-center justify-center gap-4 lg:justify-start">
-                <Button asChild size="lg" className="h-14 rounded-full px-8 text-lg tech-gradient shadow-lg text-white border-none">
+                <Button asChild size="lg" className="h-14 rounded-full px-8 text-lg tech-gradient shadow-lg text-white border-none font-bold">
                   <Link href="/contact">Book Service</Link>
                 </Button>
                 <Button 
@@ -219,17 +220,42 @@ export default function Home() {
       {/* Final CTA */}
       <section className="py-12 md:py-24 bg-white text-center">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mx-auto max-w-4xl space-y-6 md:space-y-8 rounded-3xl bg-slate-50 p-6 md:p-12 border border-slate-200">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Ready to Revive Your PC?</h2>
-            <p className="text-lg text-muted-foreground">
-              Don't wait for errors to get worse. Contact Usnish Banerjee today.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
-              <a href="tel:9593088017" className="flex items-center gap-3 text-xl md:text-2xl font-bold text-primary hover:underline transition-all">
-                <PhoneCall className="h-6 w-6" />
-                9593088017
-              </a>
-              <Button asChild size="lg" className="h-12 md:h-14 rounded-full px-8 md:px-10 tech-gradient shadow-xl text-white border-none">
+          <div className="mx-auto max-w-4xl space-y-8 md:space-y-12 rounded-[2.5rem] bg-slate-50 p-8 md:p-16 border border-slate-200">
+            <div className="space-y-4">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Ready to Revive Your PC?</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Don't wait for errors to get worse. Reach out to Usnish Banerjee today for expert doorstep assistance.
+              </p>
+            </div>
+            
+            <div className="flex flex-col items-center gap-10">
+              <div className="flex justify-center gap-6 md:gap-8">
+                <a 
+                  href="tel:9593088017" 
+                  className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-primary hover:bg-primary hover:text-white transition-all shadow-sm border border-blue-100 group"
+                  aria-label="Call Us"
+                >
+                  <PhoneCall className="h-7 w-7 group-hover:scale-110 transition-transform" />
+                </a>
+                <a 
+                  href="https://wa.me/919593088017" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-16 w-16 items-center justify-center rounded-2xl bg-green-50 text-green-600 hover:bg-green-600 hover:text-white transition-all shadow-sm border border-green-100 group"
+                  aria-label="WhatsApp Chat"
+                >
+                  <MessageCircle className="h-7 w-7 group-hover:scale-110 transition-transform" />
+                </a>
+                <a 
+                  href="mailto:banerjeeusnish2@gmail.com" 
+                  className="flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-100 text-slate-600 hover:bg-slate-600 hover:text-white transition-all shadow-sm border border-slate-200 group"
+                  aria-label="Email Us"
+                >
+                  <Mail className="h-7 w-7 group-hover:scale-110 transition-transform" />
+                </a>
+              </div>
+              
+              <Button asChild size="lg" className="h-14 md:h-16 rounded-2xl px-12 md:px-16 text-xl font-bold tech-gradient shadow-2xl text-white border-none hover:scale-[1.02] transition-transform">
                 <Link href="/contact">Get Started Now</Link>
               </Button>
             </div>
