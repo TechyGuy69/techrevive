@@ -46,7 +46,7 @@ export default function Home() {
                 <Button asChild size="lg" className="h-14 rounded-full px-8 text-lg tech-gradient shadow-lg">
                   <Link href="/contact">Book Service</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="h-14 rounded-full px-8 text-lg border-primary/20 hover:bg-primary/5">
+                <Button asChild variant="outline" size="lg" className="h-14 rounded-full px-8 text-lg border-primary/20 hover:bg-primary/10 hover:text-primary transition-colors">
                   <Link href="https://wa.me/919593088017">
                     <MessageCircle className="mr-2 h-5 w-5 text-[#25D366]" />
                     WhatsApp Now
