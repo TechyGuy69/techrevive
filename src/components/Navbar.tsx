@@ -31,7 +31,7 @@ export default function Navbar() {
   }, [isOpen]);
 
   // Prevent hydration mismatch by using a stable state for the navbar
-  const navBaseClasses = "glass-nav sticky top-0 w-full border-b bg-background/80 backdrop-blur-md z-[100]";
+  const navBaseClasses = "glass-nav sticky top-0 w-full border-b bg-background/80 backdrop-blur-md z-[50]";
 
   return (
     <nav className={navBaseClasses}>
@@ -72,11 +72,11 @@ export default function Navbar() {
       {/* Mobile Nav Overlay */}
       <div
         className={cn(
-          "fixed inset-0 z-[100] bg-white transition-all duration-300 md:hidden flex flex-col",
+          "fixed inset-0 z-[100] bg-white/90 backdrop-blur-xl transition-all duration-300 md:hidden flex flex-col",
           isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"
         )}
       >
-        <div className="flex flex-col space-y-4 p-8 pt-24 h-full bg-white overflow-y-auto">
+        <div className="flex flex-col space-y-4 p-8 pt-24 h-full overflow-y-auto">
           {navLinks.map((link) => (
             <Link
               key={link.name}
