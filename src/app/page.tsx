@@ -57,9 +57,9 @@ export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-tech');
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-0">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white pt-8 pb-12 md:pt-32 md:pb-40">
+      <section className="relative overflow-hidden bg-white pt-10 pb-12 md:pt-32 md:pb-40">
         <div className="circuit-pattern absolute inset-0 opacity-40" />
         <div className="container relative mx-auto px-4 md:px-6">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
@@ -115,9 +115,9 @@ export default function Home() {
       </section>
 
       {/* Quick Services Section */}
-      <section className="bg-slate-50 py-12 md:py-24">
+      <section className="bg-slate-50 py-10 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mb-8 md:mb-16 text-center">
+          <div className="mb-6 md:mb-16 text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-5xl mb-3">Our Services</h2>
             <p className="mx-auto max-w-[700px] text-muted-foreground text-sm md:text-base">
               Professional solutions for all your computer and laptop needs.
@@ -154,9 +154,9 @@ export default function Home() {
       </section>
 
       {/* AI Troubleshooting Section */}
-      <section className="py-12 md:py-24 bg-white relative overflow-hidden">
+      <section className="py-10 md:py-24 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid gap-10 lg:grid-cols-2 items-center">
+          <div className="grid gap-8 lg:grid-cols-2 items-center">
             <div className="space-y-4 md:space-y-6">
               <div className="inline-block rounded-lg bg-accent/10 px-3 py-1 text-sm font-bold text-accent uppercase tracking-widest">
                 AI Powered Help
@@ -167,7 +167,7 @@ export default function Home() {
               <p className="text-lg text-muted-foreground">
                 Get instant diagnostic advice using our AI engine. Describe your issue and get a fix in seconds.
               </p>
-              <ul className="space-y-3 md:space-y-4">
+              <ul className="space-y-2 md:space-y-4">
                 {[
                   "Available 24/7 for instant help",
                   "Covers hardware and software issues",
@@ -226,7 +226,7 @@ export default function Home() {
       {/* Final CTA */}
       <section className="py-12 md:py-24 bg-white text-center">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mx-auto max-w-4xl space-y-8 md:space-y-12 rounded-[2rem] md:rounded-[2.5rem] bg-slate-50 p-8 md:p-16 border border-slate-200">
+          <div className="mx-auto max-w-4xl space-y-6 md:space-y-8 rounded-3xl bg-slate-50 p-6 md:p-12 border border-slate-200">
             <div className="space-y-4">
               <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Ready to Revive Your PC?</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

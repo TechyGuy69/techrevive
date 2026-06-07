@@ -39,7 +39,7 @@ export default function Navbar() {
     <>
       <nav 
         className={cn(
-          "sticky top-0 w-full border-b backdrop-blur-md transition-all duration-300 z-50",
+          "sticky top-0 w-full border-b backdrop-blur-md transition-all duration-300 z-40",
           isOpen ? "bg-white border-transparent" : "bg-background/80"
         )}
       >
@@ -65,7 +65,7 @@ export default function Navbar() {
               </Button>
             </div>
 
-            {/* Mobile Toggle Button - Always on top */}
+            {/* Mobile Toggle Button */}
             <button
               className="md:hidden text-foreground p-2 rounded-lg hover:bg-slate-100 transition-colors relative z-[60]"
               onClick={() => setIsOpen(!isOpen)}
