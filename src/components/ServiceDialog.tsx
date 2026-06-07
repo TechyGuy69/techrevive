@@ -10,15 +10,43 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { 
+  ArrowRight, 
+  CheckCircle2,
+  Monitor, 
+  Smartphone, 
+  Zap, 
+  ShieldCheck, 
+  Layout, 
+  Settings, 
+  FileText, 
+  Package, 
+  Wrench,
+  Laptop,
+  Cpu
+} from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
+
+const IconMap: Record<string, any> = {
+  monitor: Monitor,
+  smartphone: Smartphone,
+  zap: Zap,
+  shield: ShieldCheck,
+  layout: Layout,
+  settings: Settings,
+  file: FileText,
+  package: Package,
+  wrench: Wrench,
+  laptop: Laptop,
+  cpu: Cpu
+};
 
 interface ServiceDialogProps {
   title: string;
   description: string;
   longDescription: string;
-  icon: ReactNode;
+  iconName: string;
   benefits?: string[];
   trigger?: ReactNode;
 }
@@ -27,15 +55,17 @@ export default function ServiceDialog({
   title,
   description,
   longDescription,
-  icon,
+  iconName,
   benefits = [],
   trigger
 }: ServiceDialogProps) {
+  const Icon = IconMap[iconName] || Monitor;
+
   return (
     <Dialog>
       <DialogTrigger asChild>
         {trigger || (
-          <div className="mt-6 flex items-center text-primary text-xs font-bold uppercase tracking-widest cursor-pointer hover:underline">
+          <div className="mt-4 md:mt-6 flex items-center text-primary text-xs font-bold uppercase tracking-widest cursor-pointer hover:underline">
             Read more <ArrowRight className="ml-2 h-3 w-3" />
           </div>
         )}
@@ -43,7 +73,7 @@ export default function ServiceDialog({
       <DialogContent className="sm:max-w-[500px] rounded-[2rem] border-none shadow-2xl">
         <DialogHeader className="space-y-4">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl tech-gradient text-white shadow-xl">
-            {icon}
+            <Icon className="h-8 w-8" />
           </div>
           <DialogTitle className="text-2xl font-bold text-center">{title}</DialogTitle>
           <DialogDescription className="text-base text-center leading-relaxed">
@@ -66,7 +96,7 @@ export default function ServiceDialog({
         )}
 
         <div className="mt-4 flex flex-col gap-3">
-          <Button asChild className="h-12 rounded-xl tech-gradient font-bold">
+          <Button asChild className="h-12 rounded-xl tech-gradient font-bold text-white">
             <Link href="/contact">Book This Service</Link>
           </Button>
           <DialogTrigger asChild>

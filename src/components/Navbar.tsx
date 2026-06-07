@@ -35,16 +35,11 @@ export default function Navbar() {
 
   if (!mounted) {
     return (
-      <nav className="sticky top-0 w-full border-b bg-background/80 backdrop-blur-md z-[150]">
+      <nav className="sticky top-0 w-full border-b bg-background z-[150]">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="text-xl font-bold tracking-tighter text-primary">TECHREVIVE</span>
-            </div>
-            <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <div key={link.name} className="text-sm font-medium">{link.name}</div>
-              ))}
             </div>
           </div>
         </div>
@@ -58,7 +53,7 @@ export default function Navbar() {
         className={cn(
           "sticky top-0 w-full border-b backdrop-blur-md transition-all duration-300",
           "z-[150]", 
-          isOpen ? "bg-white shadow-none" : "bg-background/80"
+          isOpen ? "bg-white" : "bg-background/80"
         )}
       >
         <div className="container mx-auto px-4 md:px-6">
@@ -78,7 +73,7 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <Button asChild className="rounded-full px-6 tech-gradient">
+              <Button asChild className="rounded-full px-6 tech-gradient text-white border-none">
                 <Link href="/contact">Book Now</Link>
               </Button>
             </div>
@@ -90,7 +85,7 @@ export default function Navbar() {
               aria-label={isOpen ? "Close menu" : "Open menu"}
             >
               {isOpen ? (
-                <X className="h-7 w-7 text-primary animate-in zoom-in duration-300" />
+                <X className="h-7 w-7 text-primary" />
               ) : (
                 <Menu className="h-7 w-7" />
               )}
@@ -119,7 +114,7 @@ export default function Navbar() {
             </Link>
           ))}
           <div className="pt-8 pb-12">
-            <Button asChild className="w-full rounded-2xl h-16 text-xl font-bold tech-gradient shadow-xl text-white">
+            <Button asChild className="w-full rounded-2xl h-16 text-xl font-bold tech-gradient shadow-xl text-white border-none">
               <Link href="/contact" onClick={() => setIsOpen(false)}>
                 Book Service
               </Link>
