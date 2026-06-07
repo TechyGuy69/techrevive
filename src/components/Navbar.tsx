@@ -39,7 +39,7 @@ export default function Navbar() {
     <>
       <nav 
         className={cn(
-          "sticky top-0 w-full border-b backdrop-blur-md transition-all duration-300 z-40",
+          "sticky top-0 w-full border-b backdrop-blur-md transition-all duration-300 z-50",
           isOpen ? "bg-white border-transparent" : "bg-background/80"
         )}
       >
@@ -67,14 +67,14 @@ export default function Navbar() {
 
             {/* Mobile Toggle Button */}
             <button
-              className="md:hidden text-foreground p-2 rounded-lg hover:bg-slate-100 transition-colors relative z-[60]"
+              className="md:hidden text-foreground p-3 -mr-2 rounded-xl hover:bg-slate-100 transition-colors relative z-[100]"
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
             >
               {isOpen ? (
-                <X className="h-7 w-7 text-primary animate-in fade-in zoom-in duration-200" />
+                <X className="h-7 w-7 text-primary animate-in fade-in zoom-in duration-300" />
               ) : (
-                <Menu className="h-7 w-7 animate-in fade-in zoom-in duration-200" />
+                <Menu className="h-7 w-7 animate-in fade-in zoom-in duration-300" />
               )}
             </button>
           </div>
@@ -84,20 +84,20 @@ export default function Navbar() {
       {/* Mobile Nav Overlay */}
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-white/95 backdrop-blur-2xl transition-all duration-500 md:hidden flex flex-col",
+          "fixed inset-0 z-40 bg-white transition-all duration-500 md:hidden flex flex-col",
           isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
         )}
       >
-        <div className="flex flex-col space-y-2 p-8 pt-24 h-full overflow-y-auto">
+        <div className="flex flex-col space-y-1 p-6 pt-24 h-full overflow-y-auto">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="flex items-center justify-between text-2xl font-bold tracking-tight py-5 border-b border-slate-100"
+              className="flex items-center justify-between text-2xl font-bold tracking-tight py-5 border-b border-slate-50 active:bg-slate-50 px-2 rounded-xl transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
-              <ChevronRight className="h-6 w-6 text-primary" />
+              <ChevronRight className="h-6 w-6 text-primary/40" />
             </Link>
           ))}
           <div className="pt-10 pb-12">
