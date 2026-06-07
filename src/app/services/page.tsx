@@ -1,4 +1,3 @@
-
 import { Monitor, Cpu, Settings, Layout, FileText, CheckCircle, Wrench, Package, ArrowRight, ShieldCheck, Zap, Laptop, Terminal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -60,12 +59,12 @@ const hardwareServices = [
 
 export default function ServicesPage() {
   return (
-    <div className="bg-slate-50 min-h-screen pb-16 md:pb-24">
+    <div className="bg-slate-50 min-h-screen pb-12 md:pb-24">
       {/* Header */}
-      <section className="relative bg-white py-16 md:py-24 overflow-hidden border-b">
+      <section className="relative bg-white py-10 md:py-24 overflow-hidden border-b">
         <div className="circuit-pattern absolute inset-0 opacity-40" />
         <div className="container relative mx-auto px-4 md:px-6">
-          <div className="mx-auto max-w-3xl text-center space-y-6">
+          <div className="mx-auto max-w-3xl text-center space-y-4 md:space-y-6">
             <div className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-bold text-primary uppercase tracking-widest">
               Pricing & Plans
             </div>
@@ -73,22 +72,22 @@ export default function ServicesPage() {
               Professional <span className="text-primary">Tech Solutions</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Transparent, competitive pricing for expert computer care. No hidden fees, just pure technical excellence delivered to your doorstep.
+              Transparent pricing for expert computer care. No hidden fees, just technical excellence at your doorstep.
             </p>
           </div>
         </div>
       </section>
 
-      <div className="container mx-auto px-4 md:px-6 mt-12 md:mt-16">
+      <div className="container mx-auto px-4 md:px-6 mt-6 md:mt-16">
         {/* Software Services */}
-        <div className="mb-16 md:mb-24">
-          <div className="flex flex-col items-center mb-8 md:mb-12">
-            <h2 className="text-3xl font-bold flex items-center gap-3 mb-2">
-              <Laptop className="h-8 w-8 text-primary" /> Software Excellence
+        <div className="mb-10 md:mb-24">
+          <div className="flex flex-col items-center mb-4 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold flex items-center gap-3 mb-2">
+              <Laptop className="h-6 md:h-8 w-6 md:w-8 text-primary" /> Software Excellence
             </h2>
-            <div className="h-1 w-20 tech-gradient rounded-full" />
+            <div className="h-1 w-16 md:w-20 tech-gradient rounded-full" />
           </div>
-          <div className="grid gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
             {softwareServices.map((service, i) => (
               <div key={i} className="group flex flex-col rounded-[2rem] md:rounded-[2.5rem] bg-white border border-slate-200 p-6 md:p-8 shadow-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/20">
                 <div className="mb-6 md:mb-8 flex items-start justify-between">
@@ -101,7 +100,7 @@ export default function ServicesPage() {
                   </div>
                 </div>
                 <h3 className="mb-3 md:mb-4 text-xl font-bold tracking-tight group-hover:text-primary transition-colors">{service.name}</h3>
-                <ul className="mb-6 md:mb-8 space-y-3 md:space-y-4 flex-1">
+                <ul className="mb-6 md:mb-8 space-y-2 md:space-y-4 flex-1">
                   {service.features.map((f, idx) => (
                     <li key={idx} className="flex items-center gap-3 text-sm text-slate-600">
                       <div className="h-5 w-5 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
@@ -122,14 +121,14 @@ export default function ServicesPage() {
         </div>
 
         {/* Hardware Services */}
-        <div className="mb-16 md:mb-24">
-          <div className="flex flex-col items-center mb-8 md:mb-12">
-            <h2 className="text-3xl font-bold flex items-center gap-3 mb-2">
-              <Cpu className="h-8 w-8 text-primary" /> Hardware Precision
+        <div className="mb-10 md:mb-24">
+          <div className="flex flex-col items-center mb-4 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold flex items-center gap-3 mb-2">
+              <Cpu className="h-6 md:h-8 w-6 md:w-8 text-primary" /> Hardware Precision
             </h2>
-            <div className="h-1 w-20 tech-gradient rounded-full" />
+            <div className="h-1 w-16 md:w-20 tech-gradient rounded-full" />
           </div>
-          <div className="grid gap-6 md:gap-8 md:grid-cols-2 max-w-5xl mx-auto">
+          <div className="grid gap-4 md:gap-8 md:grid-cols-2 max-w-5xl mx-auto">
             {hardwareServices.map((service, i) => (
               <div key={i} className="group flex flex-col rounded-[2rem] md:rounded-[2.5rem] bg-white border border-slate-200 p-6 md:p-12 shadow-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/20 relative overflow-hidden">
                 <div className="absolute top-0 right-0 h-32 w-32 tech-gradient opacity-[0.03] rounded-bl-full translate-x-8 -translate-y-8" />
@@ -143,7 +142,7 @@ export default function ServicesPage() {
                   </div>
                 </div>
                 <h3 className="mb-4 md:mb-6 text-xl md:text-2xl font-bold tracking-tight group-hover:text-primary transition-colors">{service.name}</h3>
-                <ul className="mb-8 md:mb-10 space-y-3 md:space-y-4 flex-1">
+                <ul className="mb-6 md:mb-10 space-y-2 md:space-y-4 flex-1">
                   {service.features.map((f, idx) => (
                     <li key={idx} className="flex items-center gap-3 md:gap-4 text-sm md:text-base text-slate-600">
                       <div className="h-5 w-5 md:h-6 md:w-6 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
@@ -164,37 +163,37 @@ export default function ServicesPage() {
         </div>
 
         {/* Process/Guarantee */}
-        <section className="mt-12 md:mt-20 rounded-[2rem] md:rounded-[3rem] bg-white border border-slate-200 p-8 md:p-20 shadow-xl relative overflow-hidden">
+        <section className="mt-8 md:mt-20 rounded-[2rem] md:rounded-[3rem] bg-white border border-slate-200 p-6 md:p-20 shadow-xl relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full circuit-pattern opacity-[0.02]" />
-          <div className="grid gap-8 md:gap-12 lg:grid-cols-2 relative z-10">
-            <div className="space-y-4 md:space-y-6">
+          <div className="grid gap-6 md:gap-12 lg:grid-cols-2 relative z-10">
+            <div className="space-y-3 md:space-y-6">
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight sm:text-4xl">Our Service Guarantee</h2>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                At TECHREVIVE, we don't just fix computers; we build lasting relationships through trust and technical integrity.
+              <p className="text-muted-foreground text-sm md:text-lg leading-relaxed">
+                At TECHREVIVE, we build lasting relationships through trust and technical integrity.
               </p>
               <div className="space-y-3 md:space-y-4">
                 {[
                   { title: "No Fix, No Fee", desc: "If we can't solve your software issue, you don't pay a penny.", icon: ShieldCheck },
-                  { title: "Direct Communication", desc: "Talk directly to Usnish Banerjee, no middleman or support agents.", icon: Terminal },
+                  { title: "Direct Communication", desc: "Talk directly to Usnish Banerjee, no middleman.", icon: Terminal },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
                     <div className="h-10 w-10 rounded-xl tech-gradient text-white flex items-center justify-center shrink-0">
                       <item.icon className="h-5 w-5" />
                     </div>
                     <div>
-                      <h4 className="font-bold">{item.title}</h4>
-                      <p className="text-sm text-muted-foreground">{item.desc}</p>
+                      <h4 className="font-bold text-sm md:text-base">{item.title}</h4>
+                      <p className="text-xs md:text-sm text-muted-foreground">{item.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="flex flex-col justify-center items-center text-center p-8 rounded-[1.5rem] md:rounded-[2rem] tech-gradient text-white shadow-2xl">
-              <h3 className="text-2xl font-bold mb-3 md:mb-4">Ready to start?</h3>
-              <p className="text-white/80 mb-6 md:mb-8 max-w-sm">
-                Book a service today and experience Ashoknagar's most reliable tech support.
+            <div className="flex flex-col justify-center items-center text-center p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] tech-gradient text-white shadow-2xl">
+              <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-4">Ready to start?</h3>
+              <p className="text-white/80 text-sm md:text-base mb-6 md:mb-8 max-w-sm">
+                Book a service today and experience Ashoknagar's most reliable support.
               </p>
-              <Button asChild size="lg" variant="secondary" className="h-14 md:h-16 rounded-xl md:rounded-2xl px-8 md:px-12 text-primary font-black text-lg md:text-xl hover:scale-105 transition-transform">
+              <Button asChild size="lg" variant="secondary" className="h-12 md:h-16 rounded-xl md:rounded-2xl px-6 md:px-12 text-primary font-black text-base md:text-xl hover:scale-105 transition-transform">
                 <Link href="/contact">Book Service Now</Link>
               </Button>
             </div>
