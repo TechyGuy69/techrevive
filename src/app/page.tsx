@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -6,7 +7,6 @@ import {
   ShieldCheck, 
   Zap, 
   Clock, 
-  Home as HomeIcon, 
   Smartphone, 
   ArrowRight,
   MessageCircle,
@@ -15,6 +15,38 @@ import {
 } from 'lucide-react';
 import SmartTroubleshooter from '@/components/SmartTroubleshooter';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import ServiceDialog from '@/components/ServiceDialog';
+
+const quickServices = [
+  { 
+    title: "Windows Installation", 
+    desc: "Clean setup of latest OS with drivers.", 
+    icon: Monitor,
+    longDesc: "A complete professional setup of Windows 10 or 11. We don't just install the OS; we configure your BIOS, set up high-performance partition schemes, install every necessary hardware driver, and apply the latest security patches for a rock-solid foundation.",
+    benefits: ["Latest Security Updates", "Verified Driver Compatibility", "Optimized Disk Partitions", "Basic Utility Pack"]
+  },
+  { 
+    title: "Software Setup", 
+    desc: "MS Office and essential apps configuration.", 
+    icon: Smartphone,
+    longDesc: "Expert installation of the tools you use every day. From the full Microsoft Office suite to specialized browsers, PDF editors, and communication tools. We ensure all software is properly activated and settings are tuned for your specific workflow.",
+    benefits: ["Full Office Activation", "Browser Optimization", "Essential Tools Pack", "Data Protection Setup"]
+  },
+  { 
+    title: "PC Optimization", 
+    desc: "Make your old PC run like new again.", 
+    icon: Zap,
+    longDesc: "Is your computer feeling sluggish? We perform deep system cleanup, registry repair, and startup optimization. We also handle thermal management, ensuring your hardware isn't being throttled by heat or bloatware.",
+    benefits: ["Faster Boot Times", "Increased FPS in Games", "Lower Operating Temps", "Bloatware Removal"]
+  },
+  { 
+    title: "Troubleshooting", 
+    desc: "Fix errors, blue screens, and crashes.", 
+    icon: ShieldCheck,
+    longDesc: "Deep hardware and software diagnostics to identify exactly why your system is failing. We resolve Blue Screen of Death (BSOD) errors, frequent freezing, peripheral connectivity issues, and complex software conflicts.",
+    benefits: ["Root Cause Identification", "BSOD Error Fixes", "Hardware Health Check", "Stable System Restore"]
+  },
+];
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-tech');
@@ -63,7 +95,7 @@ export default function Home() {
               <div className="absolute -inset-4 rounded-3xl bg-primary/5 blur-2xl" />
               <div className="relative overflow-hidden rounded-3xl border border-white/20 shadow-2xl">
                 <Image
-                  src={heroImage?.imageUrl || "https://picsum.photos/seed/tech1/1200/800"}
+                  src={heroImage?.imageUrl || "https://picsum.photos/seed/tech-hero-revive/1200/800"}
                   alt="Tech Support"
                   width={800}
                   height={600}
@@ -87,21 +119,21 @@ export default function Home() {
             </p>
           </div>
           <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { title: "Windows Installation", desc: "Clean setup of latest OS with drivers.", icon: Monitor },
-              { title: "Software Setup", desc: "MS Office and essential apps configuration.", icon: Smartphone },
-              { title: "PC Optimization", desc: "Make your old PC run like new again.", icon: Zap },
-              { title: "Troubleshooting", desc: "Fix errors, blue screens, and crashes.", icon: ShieldCheck },
-            ].map((s, i) => (
-              <div key={i} className="group relative rounded-2xl bg-white p-6 md:p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl">
+            {quickServices.map((s, i) => (
+              <div key={i} className="group relative rounded-2xl bg-white p-6 md:p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl border border-transparent hover:border-primary/10">
                 <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl tech-gradient text-white">
                   <s.icon className="h-6 w-6" />
                 </div>
-                <h3 className="mb-2 text-xl font-bold">{s.title}</h3>
-                <p className="text-muted-foreground text-sm">{s.desc}</p>
-                <div className="mt-6 flex items-center text-primary text-xs font-bold uppercase tracking-widest opacity-0 transition-opacity group-hover:opacity-100">
-                  Read more <ArrowRight className="ml-2 h-3 w-3" />
-                </div>
+                <h3 className="mb-2 text-xl font-bold tracking-tight">{s.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+                
+                <ServiceDialog 
+                  title={s.title}
+                  description={s.desc}
+                  longDescription={s.longDesc}
+                  icon={<s.icon className="h-8 w-8" />}
+                  benefits={s.benefits}
+                />
               </div>
             ))}
           </div>

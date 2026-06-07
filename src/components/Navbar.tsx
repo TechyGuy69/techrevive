@@ -33,6 +33,25 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
+  if (!mounted) {
+    return (
+      <nav className="sticky top-0 w-full border-b bg-background/80 backdrop-blur-md z-[150]">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex h-16 items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="text-xl font-bold tracking-tighter text-primary">TECHREVIVE</span>
+            </div>
+            <div className="hidden md:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <div key={link.name} className="text-sm font-medium">{link.name}</div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </nav>
+    );
+  }
+
   return (
     <>
       <nav 
@@ -64,18 +83,14 @@ export default function Navbar() {
               </Button>
             </div>
 
-            {/* Mobile Toggle Button - High Z-Index to stay above overlay */}
+            {/* Mobile Toggle Button */}
             <button
               className="md:hidden text-foreground p-2 rounded-lg hover:bg-slate-100 transition-colors relative z-[160]"
               onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
             >
-              {mounted ? (
-                isOpen ? (
-                  <X className="h-7 w-7 text-primary animate-in zoom-in duration-300" />
-                ) : (
-                  <Menu className="h-7 w-7" />
-                )
+              {isOpen ? (
+                <X className="h-7 w-7 text-primary animate-in zoom-in duration-300" />
               ) : (
                 <Menu className="h-7 w-7" />
               )}
@@ -88,7 +103,7 @@ export default function Navbar() {
       <div
         className={cn(
           "fixed inset-0 z-[140] bg-white/95 backdrop-blur-2xl transition-all duration-500 md:hidden flex flex-col",
-          mounted && isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+          isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
         )}
       >
         <div className="flex flex-col space-y-4 p-8 pt-24 h-full overflow-y-auto">

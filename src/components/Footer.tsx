@@ -6,10 +6,12 @@ import { useEffect, useState } from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 
 export default function Footer() {
-  const [year, setYear] = useState<number | null>(null);
+  const [mounted, setMounted] = useState(false);
+  const [year, setYear] = useState('2025');
 
   useEffect(() => {
-    setYear(new Date().getFullYear());
+    setMounted(true);
+    setYear(new Date().getFullYear().toString());
   }, []);
 
   return (
@@ -67,7 +69,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-12 border-t pt-8 text-center text-xs text-muted-foreground">
-          <p>© {year || '2025'} TECHREVIVE. Expertly Managed by Usnish Banerjee.</p>
+          <p>© {mounted ? year : '2025'} TECHREVIVE. Expertly Managed by Usnish Banerjee.</p>
         </div>
       </div>
     </footer>
