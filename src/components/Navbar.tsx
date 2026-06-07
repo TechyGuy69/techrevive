@@ -20,13 +20,6 @@ export default function Navbar() {
 
   useEffect(() => {
     setMounted(true);
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsOpen(false);
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {
@@ -37,14 +30,11 @@ export default function Navbar() {
     }
   }, [isOpen]);
 
-  // Prevent flash of mobile menu or inconsistent z-index during hydration
-  const navClasses = cn(
-    "glass-nav",
-    mounted && "!z-[100]"
-  );
+  // Prevent hydration mismatch by using a stable state for the navbar
+  const navBaseClasses = "glass-nav sticky top-0 w-full border-b bg-background/80 backdrop-blur-md z-[100]";
 
   return (
-    <nav className={navClasses}>
+    <nav className={navBaseClasses}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
@@ -69,11 +59,12 @@ export default function Navbar() {
 
           {/* Mobile Toggle */}
           <button
-            className="md:hidden text-foreground p-2 rounded-lg hover:bg-slate-100 transition-colors"
+            className="md:hidden text-foreground p-2 rounded-lg hover:bg-slate-100 transition-colors relative z-[110]"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {mounted && (isOpen ? <X className="h-6 w-6 text-primary" /> : <Menu className="h-6 w-6" />)}
+            {!mounted && <Menu className="h-6 w-6" />}
           </button>
         </div>
       </div>
@@ -81,11 +72,11 @@ export default function Navbar() {
       {/* Mobile Nav Overlay */}
       <div
         className={cn(
-          "fixed inset-0 top-16 z-[100] bg-white transition-all duration-300 md:hidden",
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          "fixed inset-0 z-[100] bg-white transition-all duration-300 md:hidden flex flex-col",
+          isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"
         )}
       >
-        <div className="flex flex-col space-y-4 p-8 h-full bg-white">
+        <div className="flex flex-col space-y-4 p-8 pt-24 h-full bg-white overflow-y-auto">
           {navLinks.map((link) => (
             <Link
               key={link.name}
