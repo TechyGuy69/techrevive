@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -32,26 +33,14 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  if (!mounted) {
-    return (
-      <nav className="sticky top-0 w-full border-b bg-background z-50">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex h-16 items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="text-xl font-bold tracking-tighter text-primary">TECHREVIVE</span>
-            </div>
-          </div>
-        </div>
-      </nav>
-    );
-  }
+  if (!mounted) return null;
 
   return (
     <>
       <nav 
         className={cn(
           "sticky top-0 w-full border-b backdrop-blur-md transition-all duration-300 z-50",
-          isOpen ? "bg-white" : "bg-background/80"
+          isOpen ? "bg-white border-transparent" : "bg-background/80"
         )}
       >
         <div className="container mx-auto px-4 md:px-6">
@@ -71,21 +60,21 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <Button asChild className="rounded-full px-6 tech-gradient text-white border-none">
+              <Button asChild className="rounded-full px-6 tech-gradient text-white border-none font-bold">
                 <Link href="/contact">Book Now</Link>
               </Button>
             </div>
 
-            {/* Mobile Toggle Button */}
+            {/* Mobile Toggle Button - Always on top */}
             <button
-              className="md:hidden text-foreground p-2 rounded-lg hover:bg-slate-100 transition-colors relative z-50"
+              className="md:hidden text-foreground p-2 rounded-lg hover:bg-slate-100 transition-colors relative z-[60]"
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
             >
               {isOpen ? (
-                <X className="h-7 w-7 text-primary" />
+                <X className="h-7 w-7 text-primary animate-in fade-in zoom-in duration-200" />
               ) : (
-                <Menu className="h-7 w-7" />
+                <Menu className="h-7 w-7 animate-in fade-in zoom-in duration-200" />
               )}
             </button>
           </div>
@@ -99,19 +88,19 @@ export default function Navbar() {
           isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
         )}
       >
-        <div className="flex flex-col space-y-4 p-8 pt-24 h-full overflow-y-auto">
+        <div className="flex flex-col space-y-2 p-8 pt-24 h-full overflow-y-auto">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="flex items-center justify-between text-2xl font-bold tracking-tight py-4 border-b border-slate-100"
+              className="flex items-center justify-between text-2xl font-bold tracking-tight py-5 border-b border-slate-100"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
               <ChevronRight className="h-6 w-6 text-primary" />
             </Link>
           ))}
-          <div className="pt-8 pb-12">
+          <div className="pt-10 pb-12">
             <Button asChild className="w-full rounded-2xl h-16 text-xl font-bold tech-gradient shadow-xl text-white border-none">
               <Link href="/contact" onClick={() => setIsOpen(false)}>
                 Book Service

@@ -6,6 +6,7 @@ import ServiceDialog from '@/components/ServiceDialog';
 
 const softwareServices = [
   { 
+    id: "win-install",
     name: "Windows Installation", 
     price: "₹100–₹200", 
     iconName: "layout",
@@ -14,6 +15,7 @@ const softwareServices = [
     longDesc: "A complete professional setup of Windows 10 or 11. We don't just install the OS; we configure your BIOS, set up high-performance partition schemes, install every necessary hardware driver, and apply the latest security patches for a rock-solid foundation."
   },
   { 
+    id: "suite-setup",
     name: "Complete Suite Setup", 
     price: "₹300–₹400", 
     iconName: "monitor",
@@ -22,6 +24,7 @@ const softwareServices = [
     longDesc: "The ultimate 'New PC' experience. We handle everything from the base OS to the full productivity suite. Perfect for students and professionals who want their system ready for work immediately."
   },
   { 
+    id: "soft-support",
     name: "Software Support", 
     price: "₹50", 
     iconName: "settings",
@@ -30,6 +33,7 @@ const softwareServices = [
     longDesc: "Need a specific professional tool installed or an antivirus set up properly? This service covers individual software installations and general app support."
   },
   { 
+    id: "office-pro",
     name: "Office Professional", 
     price: "₹100–₹150", 
     iconName: "file",
@@ -38,6 +42,7 @@ const softwareServices = [
     longDesc: "Complete installation and configuration of Microsoft Office. We ensure Outlook is properly set up with your email and all Office tools are activated and optimized."
   },
   { 
+    id: "sys-perf",
     name: "System Performance", 
     price: "₹200", 
     iconName: "zap",
@@ -49,6 +54,7 @@ const softwareServices = [
 
 const hardwareServices = [
   { 
+    id: "custom-build",
     name: "Custom PC Build", 
     price: "₹250", 
     iconName: "package",
@@ -57,6 +63,7 @@ const hardwareServices = [
     longDesc: "Buying parts? Let us put them together with expert precision. We handle everything from CPU mounting to meticulous cable management and stress testing for stability."
   },
   { 
+    id: "sys-repair",
     name: "System Repair", 
     price: "₹150", 
     iconName: "wrench",
@@ -70,7 +77,7 @@ export default function ServicesPage() {
   return (
     <div className="bg-slate-50 min-h-screen pb-12 md:pb-24">
       {/* Header */}
-      <section className="relative bg-white py-8 md:py-20 overflow-hidden border-b">
+      <section className="relative bg-white py-10 md:py-20 overflow-hidden border-b">
         <div className="circuit-pattern absolute inset-0 opacity-40" />
         <div className="container relative mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center space-y-4 md:space-y-6">
@@ -80,26 +87,26 @@ export default function ServicesPage() {
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
               Professional <span className="text-primary">Tech Solutions</span>
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               Transparent pricing for expert computer care. No hidden fees, just technical excellence at your doorstep.
             </p>
           </div>
         </div>
       </section>
 
-      <div className="container mx-auto px-4 md:px-6 mt-6 md:mt-12">
+      <div className="container mx-auto px-4 md:px-6 mt-10 md:mt-12">
         {/* Software Services */}
-        <div className="mb-8 md:mb-20">
-          <div className="flex flex-col items-center mb-6 md:mb-12">
+        <div className="mb-12 md:mb-20">
+          <div className="flex flex-col items-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl font-bold flex items-center gap-3 mb-2">
               <Laptop className="h-6 md:h-8 w-6 md:w-8 text-primary" /> Software Excellence
             </h2>
             <div className="h-1 w-16 md:w-20 tech-gradient rounded-full" />
           </div>
-          <div className="grid gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {softwareServices.map((service, i) => (
-              <div key={i} className="group flex flex-col rounded-[2rem] md:rounded-[2.5rem] bg-white border border-slate-200 p-6 md:p-8 shadow-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/20">
-                <div className="mb-6 md:mb-8 flex items-start justify-between">
+          <div className="grid gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {softwareServices.map((service) => (
+              <div key={service.id} className="group flex flex-col rounded-[2rem] bg-white border border-slate-200 p-6 md:p-8 shadow-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/20">
+                <div className="mb-6 flex items-start justify-between">
                   <div className="flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-2xl tech-gradient text-white shadow-lg shadow-primary/20">
                     {service.iconName === "layout" && <Layout className="h-6 w-6" />}
                     {service.iconName === "monitor" && <Monitor className="h-6 w-6" />}
@@ -108,13 +115,13 @@ export default function ServicesPage() {
                     {service.iconName === "zap" && <Zap className="h-6 w-6" />}
                   </div>
                   <div className="text-right">
-                    <span className="block text-2xl font-black text-primary mb-1">{service.price}</span>
+                    <span className="block text-xl md:text-2xl font-black text-primary mb-1">{service.price}</span>
                     <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-100 rounded-md text-slate-500">{service.tag}</span>
                   </div>
                 </div>
                 <h3 className="mb-3 md:mb-4 text-xl font-bold tracking-tight group-hover:text-primary transition-colors">{service.name}</h3>
                 
-                <ul className="mb-4 space-y-2 flex-1">
+                <ul className="mb-6 space-y-2 flex-1">
                   {service.features.map((f, idx) => (
                     <li key={idx} className="flex items-center gap-3 text-sm text-slate-600">
                       <div className="h-5 w-5 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
@@ -138,7 +145,7 @@ export default function ServicesPage() {
                       </Button>
                     }
                   />
-                  <Button asChild className="w-full rounded-xl h-11 tech-gradient font-bold shadow-md text-white">
+                  <Button asChild className="w-full rounded-xl h-12 tech-gradient font-bold shadow-md text-white border-none">
                     <Link href="/contact" className="flex items-center justify-center gap-2">
                       Book Now <ArrowRight className="h-4 w-4" />
                     </Link>
@@ -150,16 +157,16 @@ export default function ServicesPage() {
         </div>
 
         {/* Hardware Services */}
-        <div className="mb-8 md:mb-20">
-          <div className="flex flex-col items-center mb-6 md:mb-12">
+        <div className="mb-12 md:mb-20">
+          <div className="flex flex-col items-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl font-bold flex items-center gap-3 mb-2">
               <Cpu className="h-6 md:h-8 w-6 md:w-8 text-primary" /> Hardware Precision
             </h2>
             <div className="h-1 w-16 md:w-20 tech-gradient rounded-full" />
           </div>
-          <div className="grid gap-6 md:gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-            {hardwareServices.map((service, i) => (
-              <div key={i} className="group flex flex-col rounded-[2rem] md:rounded-[2.5rem] bg-white border border-slate-200 p-6 md:p-10 shadow-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/20 relative overflow-hidden">
+          <div className="grid gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto">
+            {hardwareServices.map((service) => (
+              <div key={service.id} className="group flex flex-col rounded-[2rem] bg-white border border-slate-200 p-6 md:p-10 shadow-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/20 relative overflow-hidden">
                 <div className="absolute top-0 right-0 h-32 w-32 tech-gradient opacity-[0.03] rounded-bl-full translate-x-8 -translate-y-8" />
                 <div className="mb-6 md:mb-8 flex items-start justify-between relative z-10">
                   <div className="flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-2xl tech-gradient text-white shadow-lg shadow-primary/20">
@@ -196,7 +203,7 @@ export default function ServicesPage() {
                       </Button>
                     }
                   />
-                  <Button asChild size="lg" className="flex-1 rounded-xl h-12 tech-gradient shadow-xl text-lg font-bold text-white">
+                  <Button asChild size="lg" className="flex-1 rounded-xl h-12 tech-gradient shadow-xl text-lg font-bold text-white border-none">
                     <Link href="/contact" className="flex items-center justify-center gap-2">
                       Book Service <ArrowRight className="h-5 w-5" />
                     </Link>

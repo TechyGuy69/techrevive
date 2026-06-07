@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -19,6 +20,7 @@ import ServiceDialog from '@/components/ServiceDialog';
 
 const quickServices = [
   { 
+    id: "windows-install",
     title: "Windows Installation", 
     desc: "Clean setup of latest OS with drivers.", 
     iconName: "monitor",
@@ -26,6 +28,7 @@ const quickServices = [
     benefits: ["Latest Security Updates", "Verified Driver Compatibility", "Optimized Disk Partitions", "Basic Utility Pack"]
   },
   { 
+    id: "software-setup",
     title: "Software Setup", 
     desc: "MS Office and essential apps configuration.", 
     iconName: "smartphone",
@@ -33,6 +36,7 @@ const quickServices = [
     benefits: ["Full Office Activation", "Browser Optimization", "Essential Tools Pack", "Data Protection Setup"]
   },
   { 
+    id: "pc-optimization",
     title: "PC Optimization", 
     desc: "Make your old PC run like new again.", 
     iconName: "zap",
@@ -40,6 +44,7 @@ const quickServices = [
     benefits: ["Faster Boot Times", "Increased FPS in Games", "Lower Operating Temps", "Bloatware Removal"]
   },
   { 
+    id: "troubleshooting",
     title: "Troubleshooting", 
     desc: "Fix errors, blue screens, and crashes.", 
     iconName: "shield",
@@ -52,9 +57,9 @@ export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-tech');
 
   return (
-    <div className="flex flex-col gap-0">
+    <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white pt-10 pb-12 md:pt-32 md:pb-40">
+      <section className="relative overflow-hidden bg-white pt-8 pb-12 md:pt-32 md:pb-40">
         <div className="circuit-pattern absolute inset-0 opacity-40" />
         <div className="container relative mx-auto px-4 md:px-6">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
@@ -110,17 +115,17 @@ export default function Home() {
       </section>
 
       {/* Quick Services Section */}
-      <section className="bg-slate-50 py-10 md:py-24">
+      <section className="bg-slate-50 py-12 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mb-6 md:mb-16 text-center">
+          <div className="mb-8 md:mb-16 text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-5xl mb-3">Our Services</h2>
             <p className="mx-auto max-w-[700px] text-muted-foreground text-sm md:text-base">
               Professional solutions for all your computer and laptop needs.
             </p>
           </div>
-          <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {quickServices.map((s, i) => (
-              <div key={i} className="group relative rounded-2xl bg-white p-6 md:p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl border border-transparent hover:border-primary/10">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            {quickServices.map((s) => (
+              <div key={s.id} className="group relative rounded-2xl bg-white p-6 md:p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl border border-transparent hover:border-primary/10">
                 <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl tech-gradient text-white">
                    {s.iconName === "monitor" && <Monitor className="h-6 w-6" />}
                    {s.iconName === "smartphone" && <Smartphone className="h-6 w-6" />}
@@ -149,9 +154,9 @@ export default function Home() {
       </section>
 
       {/* AI Troubleshooting Section */}
-      <section className="py-10 md:py-24 bg-white relative">
+      <section className="py-12 md:py-24 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid gap-8 lg:grid-cols-2 items-center">
+          <div className="grid gap-10 lg:grid-cols-2 items-center">
             <div className="space-y-4 md:space-y-6">
               <div className="inline-block rounded-lg bg-accent/10 px-3 py-1 text-sm font-bold text-accent uppercase tracking-widest">
                 AI Powered Help
@@ -162,7 +167,7 @@ export default function Home() {
               <p className="text-lg text-muted-foreground">
                 Get instant diagnostic advice using our AI engine. Describe your issue and get a fix in seconds.
               </p>
-              <ul className="space-y-2 md:space-y-4">
+              <ul className="space-y-3 md:space-y-4">
                 {[
                   "Available 24/7 for instant help",
                   "Covers hardware and software issues",
@@ -178,7 +183,8 @@ export default function Home() {
                 ))}
               </ul>
             </div>
-            <div>
+            <div className="relative">
+              <div className="absolute -inset-10 tech-gradient opacity-[0.05] rounded-full blur-3xl" />
               <SmartTroubleshooter />
             </div>
           </div>
@@ -194,7 +200,7 @@ export default function Home() {
               Trusted local technician providing premium quality service at local prices.
             </p>
           </div>
-          <div className="grid gap-4 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { title: "Fast Service", desc: "Most software issues resolved within hours.", icon: Clock },
               { title: "Affordable Pricing", desc: "Transparent pricing starting from just ₹50.", icon: Zap },
@@ -220,7 +226,7 @@ export default function Home() {
       {/* Final CTA */}
       <section className="py-12 md:py-24 bg-white text-center">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mx-auto max-w-4xl space-y-8 md:space-y-12 rounded-[2.5rem] bg-slate-50 p-8 md:p-16 border border-slate-200">
+          <div className="mx-auto max-w-4xl space-y-8 md:space-y-12 rounded-[2rem] md:rounded-[2.5rem] bg-slate-50 p-8 md:p-16 border border-slate-200">
             <div className="space-y-4">
               <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Ready to Revive Your PC?</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -229,33 +235,33 @@ export default function Home() {
             </div>
             
             <div className="flex flex-col items-center gap-10">
-              <div className="flex justify-center gap-6 md:gap-8">
+              <div className="flex justify-center gap-4 md:gap-8">
                 <a 
                   href="tel:9593088017" 
-                  className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-primary hover:bg-primary hover:text-white transition-all shadow-sm border border-blue-100 group"
+                  className="flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-2xl bg-blue-50 text-primary hover:bg-primary hover:text-white transition-all shadow-sm border border-blue-100 group"
                   aria-label="Call Us"
                 >
-                  <PhoneCall className="h-7 w-7 group-hover:scale-110 transition-transform" />
+                  <PhoneCall className="h-6 w-6 md:h-7 md:w-7 group-hover:scale-110 transition-transform" />
                 </a>
                 <a 
                   href="https://wa.me/919593088017" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-16 w-16 items-center justify-center rounded-2xl bg-green-50 text-green-600 hover:bg-green-600 hover:text-white transition-all shadow-sm border border-green-100 group"
+                  className="flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-2xl bg-green-50 text-green-600 hover:bg-green-600 hover:text-white transition-all shadow-sm border border-green-100 group"
                   aria-label="WhatsApp Chat"
                 >
-                  <MessageCircle className="h-7 w-7 group-hover:scale-110 transition-transform" />
+                  <MessageCircle className="h-6 w-6 md:h-7 md:w-7 group-hover:scale-110 transition-transform" />
                 </a>
                 <a 
                   href="mailto:banerjeeusnish2@gmail.com" 
-                  className="flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-100 text-slate-600 hover:bg-slate-600 hover:text-white transition-all shadow-sm border border-slate-200 group"
+                  className="flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-2xl bg-slate-100 text-slate-600 hover:bg-slate-600 hover:text-white transition-all shadow-sm border border-slate-200 group"
                   aria-label="Email Us"
                 >
-                  <Mail className="h-7 w-7 group-hover:scale-110 transition-transform" />
+                  <Mail className="h-6 w-6 md:h-7 md:w-7 group-hover:scale-110 transition-transform" />
                 </a>
               </div>
               
-              <Button asChild size="lg" className="h-14 md:h-16 rounded-2xl px-12 md:px-16 text-xl font-bold tech-gradient shadow-2xl text-white border-none hover:scale-[1.02] transition-transform">
+              <Button asChild size="lg" className="h-14 md:h-16 w-full max-w-sm rounded-2xl px-12 text-xl font-bold tech-gradient shadow-2xl text-white border-none hover:scale-[1.02] transition-transform">
                 <Link href="/contact">Get Started Now</Link>
               </Button>
             </div>

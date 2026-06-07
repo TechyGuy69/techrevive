@@ -40,10 +40,6 @@
   }
 }
 
-.glass-nav {
-  @apply sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md;
-}
-
 .tech-gradient {
   background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(195, 81%, 49%) 100%);
 }
@@ -51,4 +47,21 @@
 .circuit-pattern {
   background-image: radial-gradient(circle, #245DC10a 1px, transparent 1px);
   background-size: 20px 20px;
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fade-in-up 0.5s ease-out forwards;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
