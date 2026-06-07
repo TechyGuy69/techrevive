@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import FloatingCallButton from '@/components/FloatingCallButton';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
@@ -29,6 +30,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <FloatingCallButton />
         <FloatingWhatsApp />
         <Toaster />
       </body>
