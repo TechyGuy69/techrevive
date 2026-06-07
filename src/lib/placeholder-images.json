@@ -3,25 +3,25 @@
     {
       "id": "hero-tech",
       "description": "Modern computer workstation with blue lighting",
-      "imageUrl": "https://picsum.photos/seed/tech1/1200/800",
+      "imageUrl": "https://picsum.photos/seed/tech-hero-revive/1200/800",
       "imageHint": "computer repair"
     },
     {
       "id": "pc-repair",
       "description": "Technician repairing a laptop",
-      "imageUrl": "https://picsum.photos/seed/tech2/600/400",
+      "imageUrl": "https://picsum.photos/seed/tech-repair-detail/600/400",
       "imageHint": "laptop service"
     },
     {
       "id": "software-setup",
       "description": "Software code and installation screen",
-      "imageUrl": "https://picsum.photos/seed/tech3/600/400",
+      "imageUrl": "https://picsum.photos/seed/software-install-pro/600/400",
       "imageHint": "software installation"
     },
     {
       "id": "owner-portrait",
       "description": "Professional portrait of Usnish Banerjee, founder of TECHREVIVE",
-      "imageUrl": "https://picsum.photos/seed/usnish-pro-portrait/400/400",
+      "imageUrl": "https://picsum.photos/seed/usnish-tech-expert/400/400",
       "imageHint": "professional man"
     }
   ]
