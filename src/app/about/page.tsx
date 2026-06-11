@@ -23,7 +23,7 @@ export default function AboutPage() {
                 <span className="text-primary">Since 2019</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
-                TECHREVIVE is a premier computer support brand, providing elite technical assistance not only in Ashoknagar but across the entire region. We started with one mission: to treat your tech with the care and precision it deserves.
+                TECHREVIVE is a premier computer support brand, providing elite technical assistance for Ashoknagar and the surrounding areas. We started with one mission: to treat your tech with the care and precision it deserves.
               </p>
               <div className="grid gap-3 md:gap-4 grid-cols-1 sm:grid-cols-2">
                 {[
@@ -122,9 +122,9 @@ export default function AboutPage() {
                 <div className="h-12 w-12 rounded-2xl bg-white/20 flex items-center justify-center mb-6 backdrop-blur-sm">
                   <MapPin className="h-6 w-6" />
                 </div>
-                <h4 className="text-2xl font-bold mb-3 tracking-tight">Regional Coverage</h4>
+                <h4 className="text-2xl font-bold mb-3 tracking-tight">Local Coverage</h4>
                 <p className="text-white/80 leading-relaxed mb-6">
-                  Based in Ashoknagar and serving all neighboring areas with prompt, professional home service.
+                  Based in Ashoknagar and serving all neighboring locations with prompt, professional doorstep service.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {['Ashoknagar', 'Habra', 'Sherpur', 'Kalyangarh', 'Bira'].map(city => (
