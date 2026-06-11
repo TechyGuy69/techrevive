@@ -20,7 +20,7 @@ export default function AboutPage() {
               </div>
               <h1 className="text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl">
                 Reviving Tech <br/>
-                <span className="text-primary">Since 2021</span>
+                <span className="text-primary">Since 2019</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
                 TECHREVIVE is Ashoknagar's premier destination for affordable, high-quality computer support. We started with one mission: to treat your tech with the care it deserves.

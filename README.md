@@ -1,3 +1,4 @@
+
 # TECHREVIVE - Professional Computer Support
 
 TECHREVIVE is a premium web application for a premier computer service brand based in Ashoknagar. It provides users with instant AI-powered troubleshooting, professional service listings, and a seamless booking experience.
@@ -33,6 +34,7 @@ To enable the AI Troubleshooting feature, you must provide a Gemini API key. Cre
 
 ```env
 GOOGLE_GENAI_API_KEY=your_gemini_api_key_here
+RESEND_API_KEY=your_resend_api_key_here
 ```
 
 **Important:** For production environments (like GitHub Secrets), ensure the secret name is exactly `GOOGLE_GENAI_API_KEY`.
@@ -63,4 +65,4 @@ GOOGLE_GENAI_API_KEY=your_gemini_api_key_here
 Expertly managed and operated by **Usnish Banerjee**.
 
 ---
-*Reviving tech since 2021.*
+*Reviving tech since 2019.*
