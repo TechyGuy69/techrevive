@@ -20,37 +20,21 @@ TECHREVIVE is a premium web application for a premier computer service brand bas
 - **Icons**: Lucide React
 - **Language**: TypeScript
 
-## 🏁 Getting Started
+## 🏁 Deployment (GitHub / App Hosting)
 
-### Prerequisites
+To enable the AI and Email features in production, you must add the following **Secrets** to your GitHub repository (Settings > Secrets and variables > Actions):
 
-- Node.js (Latest LTS)
-- A Firebase Project
-- Google AI Studio API Key (for Gemini)
+1. **`GOOGLE_GENAI_API_KEY`**: Your Gemini API key from [Google AI Studio](https://aistudio.google.com/).
+2. **`RESEND_API_KEY`**: Your API key from [Resend](https://resend.com/).
 
-### Environment Variables
+### Environment Variables (.env.local)
 
-To enable the AI Troubleshooting feature, you must provide a Gemini API key. Create a `.env.local` file in the root directory and add:
+For local development, create a `.env.local` file:
 
 ```env
 GOOGLE_GENAI_API_KEY=your_gemini_api_key_here
 RESEND_API_KEY=your_resend_api_key_here
 ```
-
-**Important:** For production environments (like GitHub Secrets), ensure the secret name is exactly `GOOGLE_GENAI_API_KEY`.
-
-### Installation
-
-1. Clone the repository.
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Run the development server:
-   ```bash
-   npm run dev
-   ```
-4. Open [http://localhost:9002](http://localhost:9002) in your browser.
 
 ## 📂 Project Structure
 
