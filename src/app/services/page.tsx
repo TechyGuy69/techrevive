@@ -106,16 +106,16 @@ export default function ServicesPage() {
       <div className="container mx-auto px-4 md:px-6 mt-6 md:mt-12">
         {/* Software Services */}
         <div className="mb-12 md:mb-20">
-          <div className="flex flex-col items-center mb-8 md:mb-12">
+          <div className="flex flex-col items-center mb-6 md:mb-12">
             <h2 className="text-2xl md:text-3xl font-bold flex items-center gap-3 mb-2">
               <Laptop className="h-6 md:h-8 w-6 md:w-8 text-primary" /> Software Excellence
             </h2>
             <div className="h-1 w-16 md:w-20 tech-gradient rounded-full" />
           </div>
-          <div className="grid gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {softwareServices.map((service) => (
               <div key={service.id} className="group flex flex-col rounded-[2rem] bg-white border border-slate-200 p-6 md:p-8 shadow-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/20">
-                <div className="mb-6 flex items-start justify-between">
+                <div className="mb-4 md:mb-6 flex items-start justify-between">
                   <div className="flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-2xl tech-gradient text-white shadow-lg shadow-primary/20">
                     {service.iconName === "layout" && <Layout className="h-6 w-6" />}
                     {service.iconName === "monitor" && <Monitor className="h-6 w-6" />}
@@ -128,9 +128,9 @@ export default function ServicesPage() {
                     <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-100 rounded-md text-slate-500">{service.tag}</span>
                   </div>
                 </div>
-                <h3 className="mb-3 md:mb-4 text-xl font-bold tracking-tight group-hover:text-primary transition-colors">{service.name}</h3>
+                <h3 className="mb-2 md:mb-4 text-xl font-bold tracking-tight group-hover:text-primary transition-colors">{service.name}</h3>
                 
-                <ul className="mb-6 space-y-2 flex-1">
+                <ul className="mb-6 space-y-1.5 md:space-y-2 flex-1">
                   {service.features.map((f, idx) => (
                     <li key={idx} className="flex items-center gap-3 text-sm text-slate-600">
                       <div className="h-5 w-5 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
@@ -141,7 +141,7 @@ export default function ServicesPage() {
                   ))}
                 </ul>
 
-                <div className="space-y-3">
+                <div className="flex flex-col gap-3">
                   <ServiceDialog 
                     title={service.name}
                     description={`Detailed service for ${service.name}`}
@@ -149,14 +149,14 @@ export default function ServicesPage() {
                     iconName={service.iconName}
                     benefits={service.features}
                     trigger={
-                      <Button variant="ghost" className="w-full rounded-xl text-primary font-bold hover:bg-primary/5">
-                        Read Full Details
+                      <Button variant="outline" className="w-full rounded-xl h-11 md:h-12 border-primary/20 font-bold">
+                        Learn More
                       </Button>
                     }
                   />
-                  <Button asChild className="w-full rounded-xl h-12 tech-gradient font-bold shadow-md text-white border-none">
+                  <Button asChild className="w-full rounded-xl h-11 md:h-12 tech-gradient font-bold shadow-lg text-white border-none">
                     <Link href="/contact" className="flex items-center justify-center gap-2">
-                      Book Now <ArrowRight className="h-4 w-4" />
+                      Book Service <ArrowRight className="h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
@@ -167,17 +167,17 @@ export default function ServicesPage() {
 
         {/* Hardware Services */}
         <div className="mb-12 md:mb-20">
-          <div className="flex flex-col items-center mb-8 md:mb-12">
+          <div className="flex flex-col items-center mb-6 md:mb-12">
             <h2 className="text-2xl md:text-3xl font-bold flex items-center gap-3 mb-2">
               <Cpu className="h-6 md:h-8 w-6 md:w-8 text-primary" /> Hardware Precision
             </h2>
             <div className="h-1 w-16 md:w-20 tech-gradient rounded-full" />
           </div>
-          <div className="grid gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto">
+          <div className="grid gap-4 md:gap-8 grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto">
             {hardwareServices.map((service) => (
               <div key={service.id} className="group flex flex-col rounded-[2rem] bg-white border border-slate-200 p-6 md:p-10 shadow-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/20 relative overflow-hidden">
                 <div className="absolute top-0 right-0 h-32 w-32 tech-gradient opacity-[0.03] rounded-bl-full translate-x-8 -translate-y-8" />
-                <div className="mb-6 md:mb-8 flex items-start justify-between relative z-10">
+                <div className="mb-4 md:mb-8 flex items-start justify-between relative z-10">
                   <div className="flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-2xl tech-gradient text-white shadow-lg shadow-primary/20">
                     {service.iconName === "package" && <Package className="h-7 w-7" />}
                     {service.iconName === "wrench" && <Wrench className="h-7 w-7" />}
@@ -199,7 +199,7 @@ export default function ServicesPage() {
                   ))}
                 </ul>
                 
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex flex-col gap-3">
                   <ServiceDialog 
                     title={service.name}
                     description={`Hardware service for ${service.name}`}
@@ -207,14 +207,14 @@ export default function ServicesPage() {
                     iconName={service.iconName}
                     benefits={service.features}
                     trigger={
-                      <Button variant="outline" className="flex-1 rounded-xl h-12 border-primary/20 font-bold">
+                      <Button variant="outline" className="w-full rounded-xl h-11 md:h-12 border-primary/20 font-bold">
                         Learn More
                       </Button>
                     }
                   />
-                  <Button asChild size="lg" className="flex-1 rounded-xl h-12 tech-gradient shadow-xl text-lg font-bold text-white border-none">
+                  <Button asChild className="w-full rounded-xl h-11 md:h-12 tech-gradient shadow-lg font-bold text-white border-none">
                     <Link href="/contact" className="flex items-center justify-center gap-2">
-                      Book Service <ArrowRight className="h-5 w-5" />
+                      Book Service <ArrowRight className="h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
