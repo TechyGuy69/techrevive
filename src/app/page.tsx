@@ -203,7 +203,7 @@ export default function Home() {
           <div className="grid gap-4 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { title: "Fast Service", desc: "Most software issues resolved within hours.", icon: Clock },
-              { title: "Affordable Pricing", desc: "Transparent pricing starting from just ₹50.", icon: Zap },
+              { title: "Affordable Pricing", desc: "Transparent pricing starting from just ₹150.", icon: Zap },
               { title: "Remote Support", desc: "Safe remote assistance available anywhere.", icon: Smartphone },
               { title: "Home Service", desc: "We come to you. No need to carry your PC.", icon: House },
               { title: "Trusted Local Tech", desc: "Direct service by owner Usnish Banerjee.", icon: ShieldCheck },

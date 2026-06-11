@@ -1,14 +1,15 @@
 
-import { Monitor, Layout, Settings, FileText, Wrench, Package, ArrowRight, ShieldCheck, Zap, Laptop, Cpu, CheckCircle } from 'lucide-react';
+import { Monitor, Layout, Settings, FileText, Wrench, Package, ArrowRight, ShieldCheck, Zap, Laptop, Cpu, CheckCircle, Gift } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import ServiceDialog from '@/components/ServiceDialog';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const softwareServices = [
   { 
     id: "win-install",
     name: "Windows Installation", 
-    price: "₹100–₹200", 
+    price: "₹200–₹400", 
     iconName: "layout",
     tag: "Essential",
     features: ["Clean OS Install", "Latest Updates", "Standard Apps"],
@@ -17,7 +18,7 @@ const softwareServices = [
   { 
     id: "suite-setup",
     name: "Complete Suite Setup", 
-    price: "₹300–₹400", 
+    price: "₹400–₹600", 
     iconName: "monitor",
     tag: "Popular",
     features: ["Windows + All Drivers", "MS Office Suite", "System Activation"],
@@ -26,7 +27,7 @@ const softwareServices = [
   { 
     id: "soft-support",
     name: "Software Support", 
-    price: "₹50", 
+    price: "₹150", 
     iconName: "settings",
     tag: "Quick Fix",
     features: ["Custom App Installs", "Utility Tools", "Antivirus Setup"],
@@ -35,7 +36,7 @@ const softwareServices = [
   { 
     id: "office-pro",
     name: "Office Professional", 
-    price: "₹100–₹150", 
+    price: "₹200–₹350", 
     iconName: "file",
     tag: "Workforce",
     features: ["Word, Excel, PPT", "Outlook Configuration", "OneNote Setup"],
@@ -44,7 +45,7 @@ const softwareServices = [
   { 
     id: "sys-perf",
     name: "System Performance", 
-    price: "₹200", 
+    price: "₹250–₹400", 
     iconName: "zap",
     tag: "Tune-up",
     features: ["Cache & Temp Cleanup", "Registry Repair", "Boot Optimization"],
@@ -56,7 +57,7 @@ const hardwareServices = [
   { 
     id: "custom-build",
     name: "Custom PC Build", 
-    price: "₹250", 
+    price: "₹500", 
     iconName: "package",
     tag: "Expert",
     features: ["Full Assembly", "Cable Management", "Thermal Testing"],
@@ -65,7 +66,7 @@ const hardwareServices = [
   { 
     id: "sys-repair",
     name: "System Repair", 
-    price: "₹150", 
+    price: "₹200–₹600", 
     iconName: "wrench",
     tag: "Repair",
     features: ["Hardware Diagnostics", "Part Replacement", "Deep Cleaning"],
@@ -90,6 +91,14 @@ export default function ServicesPage() {
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               Transparent pricing for expert computer care. No hidden fees, just technical excellence at your doorstep.
             </p>
+            
+            <Alert className="max-w-xl mx-auto border-blue-200 bg-blue-50/50 text-blue-900 rounded-2xl">
+              <Gift className="h-5 w-5 text-primary" />
+              <AlertTitle className="font-bold">Special Discounts Available!</AlertTitle>
+              <AlertDescription className="text-sm">
+                We frequently run promotional discounts. Please <strong>call us</strong> or <strong>fill out the form</strong> to know about current offers for your service!
+              </AlertDescription>
+            </Alert>
           </div>
         </div>
       </section>
